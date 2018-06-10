@@ -5,5 +5,4 @@
     templateUrl: 'App_Source/app/home/home.component.html'
 })
 export class HomeComponent {
-    name: string = "Scott";
 }
