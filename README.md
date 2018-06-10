@@ -1,6 +1,6 @@
 # SMSR.Context: the EF context
 
-# SMSR.Database: thedatabase project
+# SMSR.Database: the database project
     dbo
         tables
             statusentries.sql
