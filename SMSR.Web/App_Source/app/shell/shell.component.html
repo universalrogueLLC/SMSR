@@ -1,1 +1,23 @@
-﻿<router-outlet></router-outlet>
+﻿<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a routerLink="/home" class="navbar-brand">SMSR</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/createEdit/0">Create Report</a></li>
+                <li><a routerLink="/list">List Reports</a></li>
+                <li><a routerLink="/generateMSR">Generate MSR</a></li>
+                <li><a routerLink="/admin">Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    <router-outlet></router-outlet>
+</div>
