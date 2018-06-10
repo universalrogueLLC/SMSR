@@ -8,11 +8,11 @@
             statusreports.sql
                 id, reportdate, projectid, authorid
             entrytypes.sql
-                id, name
+                id, name, isActive
             projects.sql
-                id, name
+                id, name, isActive
             authors.sql
-                id, name, dn
+                id, name, dn, isActive
 
 # SMSR.Entities: the entity class library
     StatusEntry
@@ -26,6 +26,7 @@
         add report -- add a status report
         list reports -- list status reports
         generate MSR -- generate the basic MSR
+        admin -- manage entry types, projects, authors
     add/edit report
         project: [___V]
         <add entry>
@@ -45,3 +46,10 @@
         data
             data
             data
+    admin
+        tab: entry types
+            CRUD on entry types
+        tab: projects
+            CRUD on projects
+        tab: authors
+            CRUD on authors
