@@ -184,6 +184,7 @@
     <Content Include="App_Source\app\generateMSR\generateMSR.component.html" />
     <Content Include="App_Source\app\home\home.component.html" />
     <Content Include="App_Source\app\list\list.component.html" />
+    <Content Include="App_Source\app\shell\shell.component.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -268,6 +269,7 @@
     <TypeScriptCompile Include="App_Source\app\generateMSR\generateMSR.component.ts" />
     <TypeScriptCompile Include="App_Source\app\home\home.component.ts" />
     <TypeScriptCompile Include="App_Source\app\list\list.component.ts" />
+    <TypeScriptCompile Include="App_Source\app\shell\shell.component.ts" />
     <TypeScriptCompile Include="App_Source\main.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 
+import { ShellComponent } from "./shell/shell.component";
 import { HomeComponent } from './home/home.component';
 import { CreateEditComponent } from './createEdit/createEdit.component';
 import { ListComponent } from './list/list.component';
@@ -14,12 +15,12 @@ let appRoutes: Routes = [
     { path: 'list', component: ListComponent },
     { path: 'generateMSR', component: GenerateMSRComponent },
     { path: 'admin', component: AdminComponent },
-    { path: '', component: HomeComponent }
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
     declarations: [
-        HomeComponent, CreateEditComponent, ListComponent, GenerateMSRComponent, AdminComponent
+        ShellComponent, HomeComponent, CreateEditComponent, ListComponent, GenerateMSRComponent, AdminComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -29,6 +30,6 @@ let appRoutes: Routes = [
         BrowserModule
     ],
     providers: [],
-    bootstrap: [HomeComponent]
+    bootstrap: [ShellComponent]
 })
 export class AppModule { }

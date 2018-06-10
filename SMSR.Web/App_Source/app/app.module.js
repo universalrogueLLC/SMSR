@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var shell_component_1 = require("./shell/shell.component");
 var home_component_1 = require("./home/home.component");
 var createEdit_component_1 = require("./createEdit/createEdit.component");
 var list_component_1 = require("./list/list.component");
@@ -20,7 +21,7 @@ var appRoutes = [
     { path: 'list', component: list_component_1.ListComponent },
     { path: 'generateMSR', component: generateMSR_component_1.GenerateMSRComponent },
     { path: 'admin', component: admin_component_1.AdminComponent },
-    { path: '', component: home_component_1.HomeComponent }
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -28,7 +29,7 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                home_component_1.HomeComponent, createEdit_component_1.CreateEditComponent, list_component_1.ListComponent, generateMSR_component_1.GenerateMSRComponent, admin_component_1.AdminComponent
+                shell_component_1.ShellComponent, home_component_1.HomeComponent, createEdit_component_1.CreateEditComponent, list_component_1.ListComponent, generateMSR_component_1.GenerateMSRComponent, admin_component_1.AdminComponent
             ],
             imports: [
                 router_1.RouterModule.forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
@@ -36,7 +37,7 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule
             ],
             providers: [],
-            bootstrap: [home_component_1.HomeComponent]
+            bootstrap: [shell_component_1.ShellComponent]
         })
     ], AppModule);
     return AppModule;
