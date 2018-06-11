@@ -23,7 +23,7 @@ var appRoutes = [
     { path: 'admin', component: admin_component_1.AdminComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
@@ -32,8 +32,7 @@ var AppModule = /** @class */ (function () {
                 shell_component_1.ShellComponent, home_component_1.HomeComponent, createEdit_component_1.CreateEditComponent, list_component_1.ListComponent, generateMSR_component_1.GenerateMSRComponent, admin_component_1.AdminComponent
             ],
             imports: [
-                router_1.RouterModule.forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
-                ),
+                router_1.RouterModule.forRoot(appRoutes, { enableTracing: true }),
                 platform_browser_1.BrowserModule
             ],
             providers: [],
