@@ -1,6 +1,9 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
+
+import { AppService } from "./appService.service";
 
 import { ShellComponent } from "./shell/shell.component";
 import { HomeComponent } from './home/home.component';
@@ -23,13 +26,11 @@ let appRoutes: Routes = [
         ShellComponent, HomeComponent, CreateEditComponent, ListComponent, GenerateMSRComponent, AdminComponent
     ],
     imports: [
-        RouterModule.forRoot(
-            appRoutes,
-            { enableTracing: true } // <-- debugging purposes only
-        ),
-        BrowserModule
+        RouterModule.forRoot(appRoutes, { enableTracing: false }),
+        BrowserModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [AppService],
     bootstrap: [ShellComponent]
 })
 export class AppModule { }

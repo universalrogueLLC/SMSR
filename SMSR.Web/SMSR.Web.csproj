@@ -176,14 +176,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Code\AuthenticationService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutMe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Dist\main.js" />
     <Content Include="App_Dist\zone.js" />
     <Content Include="App_Source\app\admin\admin.component.html" />
     <Content Include="App_Source\app\createEdit\createEdit.component.html" />
@@ -227,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -271,6 +274,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="App_Source\app\admin\admin.component.ts" />
     <TypeScriptCompile Include="App_Source\app\app.module.ts" />
+    <TypeScriptCompile Include="App_Source\app\appService.service.ts" />
     <TypeScriptCompile Include="App_Source\app\createEdit\createEdit.component.ts" />
     <TypeScriptCompile Include="App_Source\app\generateMSR\generateMSR.component.ts" />
     <TypeScriptCompile Include="App_Source\app\home\home.component.ts" />

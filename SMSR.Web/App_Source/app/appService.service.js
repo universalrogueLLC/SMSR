@@ -13,27 +13,21 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var appService_service_1 = require("../appService.service");
-var ShellComponent = (function () {
-    function ShellComponent(appService) {
-        this.appService = appService;
-        this.meLabel = "";
+var http_1 = require("@angular/common/http");
+var AppService = (function () {
+    function AppService(httpClient) {
+        this.httpClient = httpClient;
     }
-    ShellComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.appService.getMe().subscribe(function (user) {
-            _this.meLabel = (user.Id == 0) ? user.DN : user.Name;
-        });
+    AppService.prototype.getMe = function () {
+        var url = "/api/Users/0";
+        return this.httpClient.get(url);
     };
-    ShellComponent = __decorate([
-        core_1.Component({
-            selector: 'app-shell',
-            templateUrl: 'App_Source/app/shell/shell.component.html'
-        }),
-        __param(0, core_1.Inject(core_1.forwardRef(function () { return appService_service_1.AppService; }))),
-        __metadata("design:paramtypes", [appService_service_1.AppService])
-    ], ShellComponent);
-    return ShellComponent;
+    AppService = __decorate([
+        core_1.Injectable(),
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return http_1.HttpClient; }))),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AppService);
+    return AppService;
 }());
-exports.ShellComponent = ShellComponent;
-//# sourceMappingURL=shell.component.js.map
+exports.AppService = AppService;
+//# sourceMappingURL=appService.service.js.map
