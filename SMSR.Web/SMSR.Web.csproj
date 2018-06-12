@@ -274,6 +274,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="App_Source\app\admin\admin.component.ts" />
     <TypeScriptCompile Include="App_Source\app\app.module.ts" />
+    <TypeScriptCompile Include="App_Source\app\appService.service.ts" />
     <TypeScriptCompile Include="App_Source\app\createEdit\createEdit.component.ts" />
     <TypeScriptCompile Include="App_Source\app\generateMSR\generateMSR.component.ts" />
     <TypeScriptCompile Include="App_Source\app\home\home.component.ts" />

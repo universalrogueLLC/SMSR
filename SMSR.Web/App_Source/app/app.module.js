@@ -9,6 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var http_1 = require("@angular/common/http");
+var appService_service_1 = require("./appService.service");
 var shell_component_1 = require("./shell/shell.component");
 var home_component_1 = require("./home/home.component");
 var createEdit_component_1 = require("./createEdit/createEdit.component");
@@ -32,10 +34,11 @@ var AppModule = (function () {
                 shell_component_1.ShellComponent, home_component_1.HomeComponent, createEdit_component_1.CreateEditComponent, list_component_1.ListComponent, generateMSR_component_1.GenerateMSRComponent, admin_component_1.AdminComponent
             ],
             imports: [
-                router_1.RouterModule.forRoot(appRoutes, { enableTracing: true }),
-                platform_browser_1.BrowserModule
+                router_1.RouterModule.forRoot(appRoutes, { enableTracing: false }),
+                platform_browser_1.BrowserModule,
+                http_1.HttpClientModule
             ],
-            providers: [],
+            providers: [appService_service_1.AppService],
             bootstrap: [shell_component_1.ShellComponent]
         })
     ], AppModule);
