@@ -1,6 +1,7 @@
 ﻿import { Component, Inject, forwardRef, OnInit } from '@angular/core';
 
 import { AppService } from "../appService.service";
+import { User } from "../entities";
 
 @Component({
     selector: 'app-shell',
@@ -8,13 +9,13 @@ import { AppService } from "../appService.service";
 })
 export class ShellComponent implements OnInit {
 
-    meLabel: string = "";
+    me: User;
 
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 
     ngOnInit(): void {
         this.appService.getMe().subscribe((user) => {
-            this.meLabel = (user.Id == 0) ? user.DN : user.Name;
+            this.me = user;
         });
     }
 }

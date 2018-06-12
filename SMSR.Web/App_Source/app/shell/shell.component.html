@@ -10,15 +10,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a routerLink="/createEdit/0">Create Report</a></li>
-                <li><a routerLink="/list">List Reports</a></li>
-                <li><a routerLink="/generateMSR">Generate MSR</a></li>
-                <li><a routerLink="/admin">Admin</a></li>
+                <li><a routerLink="/createEdit/0" *ngIf="me && me.IsAuthor">Create Report</a></li>
+                <li><a routerLink="/list" *ngIf="me && me.IsAuthor">List Reports</a></li>
+                <li><a routerLink="/generateMSR" *ngIf="me && me.IsAdmin">Generate MSR</a></li>
+                <li><a routerLink="/admin" *ngIf="me && me.IsAdmin">Admin</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container body-content">
-    <h4>{{meLabel}}</h4>
     <router-outlet></router-outlet>
 </div>
