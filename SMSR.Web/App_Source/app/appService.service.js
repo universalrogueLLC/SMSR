@@ -19,6 +19,7 @@ var AppService = (function () {
         this.httpClient = httpClient;
         this.projectBase = "/api/Projects";
         this.userBase = "/api/Users";
+        this.entryTypeBase = "/api/EntryTypes";
     }
     AppService.prototype.getMe = function () {
         var url = this.userBase + "/0";
@@ -47,6 +48,18 @@ var AppService = (function () {
     AppService.prototype.addProject = function (project) {
         var url = "" + this.projectBase;
         return this.httpClient.post(url, project);
+    };
+    AppService.prototype.getEntryTypes = function () {
+        var url = "" + this.entryTypeBase;
+        return this.httpClient.get(url);
+    };
+    AppService.prototype.saveEntryType = function (entryType) {
+        var url = this.entryTypeBase + "/" + entryType.Id;
+        return this.httpClient.put(url, entryType);
+    };
+    AppService.prototype.addEntryType = function (entryType) {
+        var url = "" + this.entryTypeBase;
+        return this.httpClient.post(url, entryType);
     };
     AppService = __decorate([
         core_1.Injectable(),

@@ -23,6 +23,8 @@ var AdminComponent = (function () {
         this.projects = new Array();
         this.newUser = new entities_1.User();
         this.users = new Array();
+        this.newEntryType = new entities_1.EntryType();
+        this.entryTypes = new Array();
     }
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -31,6 +33,9 @@ var AdminComponent = (function () {
         });
         this.appService.getUsers().subscribe(function (users) {
             _this.users = users;
+        });
+        this.appService.getEntryTypes().subscribe(function (entryTypes) {
+            _this.entryTypes = entryTypes;
         });
     };
     AdminComponent.prototype.saveProject = function (index) {
@@ -59,6 +64,20 @@ var AdminComponent = (function () {
             _this.users.push(result);
             _this.newUser = new entities_1.User();
             alert("User added");
+        });
+    };
+    AdminComponent.prototype.saveEntryType = function (index) {
+        var entryType = this.entryTypes[index];
+        this.appService.saveEntryType(entryType).subscribe(function (result) {
+            alert("Entry Type saved");
+        });
+    };
+    AdminComponent.prototype.addEntryType = function () {
+        var _this = this;
+        this.appService.addEntryType(this.newEntryType).subscribe(function (result) {
+            _this.entryTypes.push(result);
+            _this.newEntryType = new entities_1.EntryType();
+            alert("Entry Type added");
         });
     };
     AdminComponent = __decorate([

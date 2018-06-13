@@ -11,6 +11,7 @@ export class AppService {
 
     projectBase: string = "/api/Projects";
     userBase: string = "/api/Users";
+    entryTypeBase: string = "/api/EntryTypes";
 
     constructor( @Inject(forwardRef(() => HttpClient)) private httpClient: HttpClient) { }
 
@@ -51,5 +52,22 @@ export class AppService {
     addProject(project: Project): Observable<Project> {
         let url = `${this.projectBase}`;
         return this.httpClient.post<Project>(url, project);
+    }
+
+    // EntryTypes
+
+    getEntryTypes(): Observable<EntryType[]> {
+        let url = `${this.entryTypeBase}`;
+        return this.httpClient.get<EntryType[]>(url);
+    }
+
+    saveEntryType(entryType: EntryType): Observable<any> {
+        let url = `${this.entryTypeBase}/${entryType.Id}`;
+        return this.httpClient.put(url, entryType);
+    }
+
+    addEntryType(entryType: EntryType): Observable<EntryType> {
+        let url = `${this.entryTypeBase}`;
+        return this.httpClient.post<EntryType>(url, entryType);
     }
 }

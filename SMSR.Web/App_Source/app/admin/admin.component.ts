@@ -17,6 +17,9 @@ export class AdminComponent implements OnInit {
     newUser: User = new User();
     users: User[] = new Array<User>();
 
+    newEntryType: EntryType = new EntryType();
+    entryTypes: EntryType[] = new Array<EntryType>();
+
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 
     ngOnInit(): void {
@@ -26,6 +29,10 @@ export class AdminComponent implements OnInit {
 
         this.appService.getUsers().subscribe((users) => {
             this.users = users;
+        });
+
+        this.appService.getEntryTypes().subscribe((entryTypes) => {
+            this.entryTypes = entryTypes;
         });
     }
 
@@ -56,6 +63,21 @@ export class AdminComponent implements OnInit {
             this.users.push(result);
             this.newUser = new User();
             alert("User added");
+        });
+    }
+
+    saveEntryType(index: number): void {
+        let entryType = this.entryTypes[index];
+        this.appService.saveEntryType(entryType).subscribe((result) => {
+            alert("Entry Type saved");
+        });
+    }
+
+    addEntryType(): void {
+        this.appService.addEntryType(this.newEntryType).subscribe((result) => {
+            this.entryTypes.push(result);
+            this.newEntryType = new EntryType();
+            alert("Entry Type added");
         });
     }
 }
