@@ -26,40 +26,42 @@ var AppService = (function () {
         return this.httpClient.get(url);
     };
     AppService.prototype.getUsers = function () {
-        var url = "" + this.userBase;
-        return this.httpClient.get(url);
+        return this.getEntities(this.userBase);
     };
     AppService.prototype.saveUser = function (user) {
-        var url = this.userBase + "/" + user.Id;
-        return this.httpClient.put(url, user);
+        return this.saveEntity(user, this.userBase);
     };
     AppService.prototype.addUser = function (user) {
-        var url = "" + this.userBase;
-        return this.httpClient.post(url, user);
+        return this.addEntity(user, this.userBase);
     };
     AppService.prototype.getProjects = function () {
-        var url = "" + this.projectBase;
-        return this.httpClient.get(url);
+        return this.getEntities(this.projectBase);
     };
     AppService.prototype.saveProject = function (project) {
-        var url = this.projectBase + "/" + project.Id;
-        return this.httpClient.put(url, project);
+        return this.saveEntity(project, this.projectBase);
     };
     AppService.prototype.addProject = function (project) {
-        var url = "" + this.projectBase;
-        return this.httpClient.post(url, project);
+        return this.addEntity(project, this.projectBase);
     };
     AppService.prototype.getEntryTypes = function () {
-        var url = "" + this.entryTypeBase;
-        return this.httpClient.get(url);
+        return this.getEntities(this.entryTypeBase);
     };
     AppService.prototype.saveEntryType = function (entryType) {
-        var url = this.entryTypeBase + "/" + entryType.Id;
-        return this.httpClient.put(url, entryType);
+        return this.saveEntity(entryType, this.entryTypeBase);
     };
     AppService.prototype.addEntryType = function (entryType) {
-        var url = "" + this.entryTypeBase;
-        return this.httpClient.post(url, entryType);
+        return this.addEntity(entryType, this.entryTypeBase);
+    };
+    AppService.prototype.getEntities = function (baseUrl) {
+        return this.httpClient.get(baseUrl);
+    };
+    AppService.prototype.saveEntity = function (entity, baseUrl) {
+        var url = baseUrl + "/" + entity.Id;
+        return this.httpClient.put(url, entity);
+    };
+    AppService.prototype.addEntity = function (entity, baseUrl) {
+        var url = "" + baseUrl;
+        return this.httpClient.post(url, entity);
     };
     AppService = __decorate([
         core_1.Injectable(),

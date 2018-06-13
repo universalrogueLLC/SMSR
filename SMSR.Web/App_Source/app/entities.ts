@@ -1,10 +1,14 @@
-﻿export class Project {
+﻿export interface ISMSREntity {
+    Id: number;
+}
+
+export class Project implements ISMSREntity {
     Id: number;
     Name: string;
     IsActive: boolean;
 }
 
-export class User {
+export class User implements ISMSREntity {
     Id: number;
     DN: string;
     Name: string;
@@ -13,7 +17,7 @@ export class User {
     IsActive: boolean;
 }
 
-export class EntryType {
+export class EntryType implements ISMSREntity {
     Id: number;
     Name: string;
     IsActive: boolean;
