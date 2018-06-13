@@ -10,13 +10,33 @@ import { Project, User, EntryType } from "./entities";
 export class AppService {
 
     projectBase: string = "/api/Projects";
+    userBase: string = "/api/Users";
 
     constructor( @Inject(forwardRef(() => HttpClient)) private httpClient: HttpClient) { }
 
+    // Users
+
     getMe(): Observable<User> {
-        let url = "/api/Users/0";
+        let url = `${this.userBase}/0`;
         return this.httpClient.get<User>(url);
     }
+
+    getUsers(): Observable<User[]> {
+        let url = `${this.userBase}`;
+        return this.httpClient.get<User[]>(url);
+    }
+
+    saveUser(user: User): Observable<any> {
+        let url = `${this.userBase}/${user.Id}`;
+        return this.httpClient.put(url, user);
+    }
+
+    addUser(user: User): Observable<User> {
+        let url = `${this.userBase}`;
+        return this.httpClient.post<User>(url, user);
+    }
+
+    // Projects
 
     getProjects(): Observable<Project[]> {
         let url = `${this.projectBase}`;

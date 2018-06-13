@@ -18,10 +18,23 @@ var AppService = (function () {
     function AppService(httpClient) {
         this.httpClient = httpClient;
         this.projectBase = "/api/Projects";
+        this.userBase = "/api/Users";
     }
     AppService.prototype.getMe = function () {
-        var url = "/api/Users/0";
+        var url = this.userBase + "/0";
         return this.httpClient.get(url);
+    };
+    AppService.prototype.getUsers = function () {
+        var url = "" + this.userBase;
+        return this.httpClient.get(url);
+    };
+    AppService.prototype.saveUser = function (user) {
+        var url = this.userBase + "/" + user.Id;
+        return this.httpClient.put(url, user);
+    };
+    AppService.prototype.addUser = function (user) {
+        var url = "" + this.userBase;
+        return this.httpClient.post(url, user);
     };
     AppService.prototype.getProjects = function () {
         var url = "" + this.projectBase;

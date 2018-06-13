@@ -21,11 +21,16 @@ var AdminComponent = (function () {
         this.managing = "PROJECTS";
         this.newProject = new entities_1.Project();
         this.projects = new Array();
+        this.newUser = new entities_1.User();
+        this.users = new Array();
     }
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.appService.getProjects().subscribe(function (projects) {
             _this.projects = projects;
+        });
+        this.appService.getUsers().subscribe(function (users) {
+            _this.users = users;
         });
     };
     AdminComponent.prototype.saveProject = function (index) {
@@ -40,6 +45,20 @@ var AdminComponent = (function () {
             _this.projects.push(result);
             _this.newProject = new entities_1.Project();
             alert("Project added");
+        });
+    };
+    AdminComponent.prototype.saveUser = function (index) {
+        var user = this.users[index];
+        this.appService.saveUser(user).subscribe(function (result) {
+            alert("User saved");
+        });
+    };
+    AdminComponent.prototype.addUser = function () {
+        var _this = this;
+        this.appService.addUser(this.newUser).subscribe(function (result) {
+            _this.users.push(result);
+            _this.newUser = new entities_1.User();
+            alert("User added");
         });
     };
     AdminComponent = __decorate([

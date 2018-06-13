@@ -14,11 +14,18 @@ export class AdminComponent implements OnInit {
     newProject: Project = new Project();
     projects: Project[] = new Array<Project>();
 
+    newUser: User = new User();
+    users: User[] = new Array<User>();
+
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 
     ngOnInit(): void {
         this.appService.getProjects().subscribe((projects) => {
             this.projects = projects;
+        });
+
+        this.appService.getUsers().subscribe((users) => {
+            this.users = users;
         });
     }
 
@@ -34,6 +41,21 @@ export class AdminComponent implements OnInit {
             this.projects.push(result);
             this.newProject = new Project();
             alert("Project added");
+        });
+    }
+
+    saveUser(index: number): void {
+        let user = this.users[index];
+        this.appService.saveUser(user).subscribe((result) => {
+            alert("User saved");
+        });
+    }
+
+    addUser(): void {
+        this.appService.addUser(this.newUser).subscribe((result) => {
+            this.users.push(result);
+            this.newUser = new User();
+            alert("User added");
         });
     }
 }
