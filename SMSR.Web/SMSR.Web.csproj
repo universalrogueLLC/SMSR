@@ -177,7 +177,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\AuthenticationService.cs" />
+    <Compile Include="Controllers\EntryTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,6 +278,7 @@
     <TypeScriptCompile Include="App_Source\app\app.module.ts" />
     <TypeScriptCompile Include="App_Source\app\appService.service.ts" />
     <TypeScriptCompile Include="App_Source\app\createEdit\createEdit.component.ts" />
+    <TypeScriptCompile Include="App_Source\app\entities.ts" />
     <TypeScriptCompile Include="App_Source\app\generateMSR\generateMSR.component.ts" />
     <TypeScriptCompile Include="App_Source\app\home\home.component.ts" />
     <TypeScriptCompile Include="App_Source\app\list\list.component.ts" />

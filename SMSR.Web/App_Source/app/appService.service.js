@@ -17,10 +17,49 @@ var http_1 = require("@angular/common/http");
 var AppService = (function () {
     function AppService(httpClient) {
         this.httpClient = httpClient;
+        this.projectBase = "/api/Projects";
+        this.userBase = "/api/Users";
+        this.entryTypeBase = "/api/EntryTypes";
     }
     AppService.prototype.getMe = function () {
-        var url = "/api/Users/0";
+        var url = this.userBase + "/0";
         return this.httpClient.get(url);
+    };
+    AppService.prototype.getUsers = function () {
+        var url = "" + this.userBase;
+        return this.httpClient.get(url);
+    };
+    AppService.prototype.saveUser = function (user) {
+        var url = this.userBase + "/" + user.Id;
+        return this.httpClient.put(url, user);
+    };
+    AppService.prototype.addUser = function (user) {
+        var url = "" + this.userBase;
+        return this.httpClient.post(url, user);
+    };
+    AppService.prototype.getProjects = function () {
+        var url = "" + this.projectBase;
+        return this.httpClient.get(url);
+    };
+    AppService.prototype.saveProject = function (project) {
+        var url = this.projectBase + "/" + project.Id;
+        return this.httpClient.put(url, project);
+    };
+    AppService.prototype.addProject = function (project) {
+        var url = "" + this.projectBase;
+        return this.httpClient.post(url, project);
+    };
+    AppService.prototype.getEntryTypes = function () {
+        var url = "" + this.entryTypeBase;
+        return this.httpClient.get(url);
+    };
+    AppService.prototype.saveEntryType = function (entryType) {
+        var url = this.entryTypeBase + "/" + entryType.Id;
+        return this.httpClient.put(url, entryType);
+    };
+    AppService.prototype.addEntryType = function (entryType) {
+        var url = "" + this.entryTypeBase;
+        return this.httpClient.post(url, entryType);
     };
     AppService = __decorate([
         core_1.Injectable(),
