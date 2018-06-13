@@ -323,7 +323,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>cd $(ProjectDir)
-.\node_modules\.bin\webpack .\App_Source\main.js --output .\App_Dist\main.js --optimize-minimize
+.\node_modules\.bin\webpack --entry .\App_Source\main.js --output .\App_Dist\main.js
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
