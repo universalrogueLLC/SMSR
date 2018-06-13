@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { Observable } from 'rxjs';
 
-import { Project, User, EntryType } from "./entities";
+import { ISMSREntity, Project, User, EntryType } from "./entities";
 
 @Injectable()
 export class AppService {
@@ -23,51 +23,58 @@ export class AppService {
     }
 
     getUsers(): Observable<User[]> {
-        let url = `${this.userBase}`;
-        return this.httpClient.get<User[]>(url);
+        return this.getEntities<User>(this.userBase);
     }
 
     saveUser(user: User): Observable<any> {
-        let url = `${this.userBase}/${user.Id}`;
-        return this.httpClient.put(url, user);
+        return this.saveEntity(user, this.userBase);
     }
 
     addUser(user: User): Observable<User> {
-        let url = `${this.userBase}`;
-        return this.httpClient.post<User>(url, user);
+        return this.addEntity<User>(user, this.userBase);
     }
 
     // Projects
 
     getProjects(): Observable<Project[]> {
-        let url = `${this.projectBase}`;
-        return this.httpClient.get<Project[]>(url);
+        return this.getEntities<Project>(this.projectBase);
     }
 
     saveProject(project: Project): Observable<any> {
-        let url = `${this.projectBase}/${project.Id}`;
-        return this.httpClient.put(url, project);
+        return this.saveEntity(project, this.projectBase);
     }
 
     addProject(project: Project): Observable<Project> {
-        let url = `${this.projectBase}`;
-        return this.httpClient.post<Project>(url, project);
+        return this.addEntity<Project>(project, this.projectBase);
     }
 
     // EntryTypes
 
     getEntryTypes(): Observable<EntryType[]> {
-        let url = `${this.entryTypeBase}`;
-        return this.httpClient.get<EntryType[]>(url);
+        return this.getEntities<EntryType>(this.entryTypeBase);
     }
 
     saveEntryType(entryType: EntryType): Observable<any> {
-        let url = `${this.entryTypeBase}/${entryType.Id}`;
-        return this.httpClient.put(url, entryType);
+        return this.saveEntity(entryType, this.entryTypeBase);
     }
 
     addEntryType(entryType: EntryType): Observable<EntryType> {
-        let url = `${this.entryTypeBase}`;
-        return this.httpClient.post<EntryType>(url, entryType);
+        return this.addEntity<EntryType>(entryType, this.entryTypeBase);
+    }
+
+    // Generic
+
+    getEntities<T>(baseUrl: string): Observable<T[]> {
+        return this.httpClient.get<T[]>(baseUrl);
+    }
+
+    saveEntity(entity: ISMSREntity, baseUrl: string): Observable<any> {
+        let url = `${baseUrl}/${entity.Id}`;
+        return this.httpClient.put(url, entity);
+    }
+
+    addEntity<T>(entity: T, baseUrl: string): Observable<T> {
+        let url = `${baseUrl}`;
+        return this.httpClient.post<T>(url, entity);
     }
 }
