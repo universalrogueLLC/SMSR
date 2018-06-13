@@ -4,4 +4,5 @@
     Name: string;
     IsAuthor: boolean;
     IsAdmin: boolean;
+    IsActive: boolean;
 }

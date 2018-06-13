@@ -276,6 +276,7 @@
     <TypeScriptCompile Include="App_Source\app\app.module.ts" />
     <TypeScriptCompile Include="App_Source\app\appService.service.ts" />
     <TypeScriptCompile Include="App_Source\app\createEdit\createEdit.component.ts" />
+    <TypeScriptCompile Include="App_Source\app\entities.ts" />
     <TypeScriptCompile Include="App_Source\app\generateMSR\generateMSR.component.ts" />
     <TypeScriptCompile Include="App_Source\app\home\home.component.ts" />
     <TypeScriptCompile Include="App_Source\app\list\list.component.ts" />

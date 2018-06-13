@@ -34,10 +34,7 @@ namespace SMSR.Web.Controllers
                 var user = context.Users.FirstOrDefault(x => x.DN == result.DN);
                 if (user != null)
                 {
-                    result.Id = user.Id;
-                    result.IsAdmin = user.IsAdmin;
-                    result.IsAuthor = user.IsAuthor;
-                    result.Name = user.Name;
+                    result.CopyPropertiesFrom(user);
                 }
 
                 return Ok(result);
