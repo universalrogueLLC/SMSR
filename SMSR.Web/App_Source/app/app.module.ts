@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppService } from "./appService.service";
 
@@ -26,8 +27,9 @@ let appRoutes: Routes = [
         ShellComponent, HomeComponent, CreateEditComponent, ListComponent, GenerateMSRComponent, AdminComponent
     ],
     imports: [
-        RouterModule.forRoot(appRoutes, { enableTracing: false }),
+        RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),
         BrowserModule,
+        FormsModule,
         HttpClientModule
     ],
     providers: [AppService],

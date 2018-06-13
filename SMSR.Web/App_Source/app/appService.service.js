@@ -17,10 +17,23 @@ var http_1 = require("@angular/common/http");
 var AppService = (function () {
     function AppService(httpClient) {
         this.httpClient = httpClient;
+        this.projectBase = "/api/Projects";
     }
     AppService.prototype.getMe = function () {
         var url = "/api/Users/0";
         return this.httpClient.get(url);
+    };
+    AppService.prototype.getProjects = function () {
+        var url = "" + this.projectBase;
+        return this.httpClient.get(url);
+    };
+    AppService.prototype.saveProject = function (project) {
+        var url = this.projectBase + "/" + project.Id;
+        return this.httpClient.put(url, project);
+    };
+    AppService.prototype.addProject = function (project) {
+        var url = "" + this.projectBase;
+        return this.httpClient.post(url, project);
     };
     AppService = __decorate([
         core_1.Injectable(),
