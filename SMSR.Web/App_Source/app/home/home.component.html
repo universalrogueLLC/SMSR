@@ -1,18 +1,18 @@
 ﻿<div>
-    <h1>SMSR</h1>
-    <p class="lead">STARMAN Status Reports</p>
+    <h1>SMSR - STARMAN Status Reports</h1>
+    <p class="lead">Welcome, {{meLabel}}</p>
 </div>
 <div class="row">
     <div class="col-md-3">
-        <a href="#" class="btn btn-primary">Create Status Report</a>
+        <a routerLink="/createEdit/0" class="btn btn-primary" *ngIf="me && me.IsAuthor">Create Status Report</a>
     </div>
     <div class="col-md-3">
-        <a href="#" class="btn btn-primary">List Status Reports</a>
+        <a routerLink="/list" class="btn btn-primary" *ngIf="me && me.IsAuthor">List Status Reports</a>
     </div>
     <div class="col-md-3">
-        <a href="#" class="btn btn-primary">Generate MSR</a>
+        <a routerLink="/generateMSR" class="btn btn-primary" *ngIf="me && me.IsAdmin">Generate MSR</a>
     </div>
     <div class="col-md-3">
-        <a href="#" class="btn btn-primary">Admin</a>
+        <a routerLink="/admin" class="btn btn-primary" *ngIf="me && me.IsAdmin">Admin</a>
     </div>
 </div>
