@@ -22,3 +22,22 @@ export class EntryType implements ISMSREntity {
     Name: string;
     IsActive: boolean;
 }
+
+export class StatusReport implements ISMSREntity {
+    Id: number;
+    ReportDate: string;
+    ProjectId: number;
+    Project: Project;
+    UserId: number;
+    User: User;
+    Entries: StatusReportEntry[];
+}
+
+export class StatusReportEntry implements ISMSREntity {
+    Id: number;
+    Value: string;
+    Notes: string;
+    EntryTypeId: number;
+    EntryType: EntryType;
+    StatusReportId: number;
+}

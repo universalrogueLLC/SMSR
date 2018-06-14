@@ -31,7 +31,7 @@
         project: [___V]
         <add entry>
             type: [___V]  value: [___] notes: [___] <delete>
-        <save>
+        <save> <delete>
     list reports
         filter: project: [___V] author: [___V] dates: [___] to [___]
         <search>

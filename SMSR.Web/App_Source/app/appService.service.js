@@ -20,6 +20,7 @@ var AppService = (function () {
         this.projectBase = "/api/Projects";
         this.userBase = "/api/Users";
         this.entryTypeBase = "/api/EntryTypes";
+        this.statusReportBase = "/api/StatusReports";
     }
     AppService.prototype.getMe = function () {
         var url = this.userBase + "/0";
@@ -51,6 +52,16 @@ var AppService = (function () {
     };
     AppService.prototype.addEntryType = function (entryType) {
         return this.addEntity(entryType, this.entryTypeBase);
+    };
+    AppService.prototype.searchStatusReports = function (criteria) {
+        var url = this.statusReportBase + "/search";
+        return this.httpClient.post(url, criteria);
+    };
+    AppService.prototype.saveStatusReport = function (statusReport) {
+        return this.saveEntity(statusReport, this.statusReportBase);
+    };
+    AppService.prototype.addStatusReport = function (statusReport) {
+        return this.addEntity(statusReport, this.statusReportBase);
     };
     AppService.prototype.getEntities = function (baseUrl) {
         return this.httpClient.get(baseUrl);

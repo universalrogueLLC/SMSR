@@ -180,12 +180,14 @@
     <Compile Include="Controllers\EntryTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\StatusReportsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutMe.cs" />
+    <Compile Include="Models\SearchCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +285,7 @@
     <TypeScriptCompile Include="App_Source\app\home\home.component.ts" />
     <TypeScriptCompile Include="App_Source\app\list\list.component.ts" />
     <TypeScriptCompile Include="App_Source\app\shell\shell.component.ts" />
+    <TypeScriptCompile Include="App_Source\app\types.ts" />
     <TypeScriptCompile Include="App_Source\main.ts" />
   </ItemGroup>
   <ItemGroup>

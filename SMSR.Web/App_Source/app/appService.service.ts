@@ -4,7 +4,8 @@ import { HttpClient } from "@angular/common/http";
 
 import { Observable } from 'rxjs';
 
-import { ISMSREntity, Project, User, EntryType } from "./entities";
+import { ISMSREntity, Project, User, EntryType, StatusReport } from "./entities";
+import { SearchCriteria } from "./types";
 
 @Injectable()
 export class AppService {
@@ -12,6 +13,7 @@ export class AppService {
     projectBase: string = "/api/Projects";
     userBase: string = "/api/Users";
     entryTypeBase: string = "/api/EntryTypes";
+    statusReportBase: string = "/api/StatusReports";
 
     constructor( @Inject(forwardRef(() => HttpClient)) private httpClient: HttpClient) { }
 
@@ -60,6 +62,21 @@ export class AppService {
 
     addEntryType(entryType: EntryType): Observable<EntryType> {
         return this.addEntity<EntryType>(entryType, this.entryTypeBase);
+    }
+
+    // StatusReports
+
+    searchStatusReports(criteria: SearchCriteria): Observable<StatusReport[]> {
+        let url = `${this.statusReportBase}/search`;
+        return this.httpClient.post<StatusReport[]>(url, criteria);
+    }
+
+    saveStatusReport(statusReport: StatusReport): Observable<any> {
+        return this.saveEntity(statusReport, this.statusReportBase);
+    }
+
+    addStatusReport(statusReport: StatusReport): Observable<StatusReport> {
+        return this.addEntity<StatusReport>(statusReport, this.statusReportBase);
     }
 
     // Generic

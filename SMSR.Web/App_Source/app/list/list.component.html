@@ -1,1 +1,57 @@
-﻿LIST!
+﻿<div>
+    <h1>SMSR - List</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <label for="user">Author</label>
+        <select id="user" class="form-control" [(ngModel)]="criteria.userId">
+            <option value="---">---</option>
+            <option *ngFor="let user of users" value="{{user.Id.toString()}}">{{user.Name}}</option>
+        </select>
+        <br/>
+    </div>
+    <div class="col-md-3">
+        <label for="project">Project</label>
+        <select id="project" class="form-control" [(ngModel)]="criteria.projectId">
+            <option value="---">---</option>
+            <option *ngFor="let project of projects" value="{{project.Id.toString()}}">{{project.Name}}</option>
+        </select>
+        <br />
+    </div>
+    <div class="col-md-3">
+        <label for="beginDate">Begin Date</label>
+        <input id="beginDate" class="form-control" [(ngModel)]="criteria.beginDate" placeholder="yyyy-mm-dd" />
+        <br />
+        <label for="endDate">End Date</label>
+        <input id="endDate" class="form-control" [(ngModel)]="criteria.endDate" placeholder="yyyy-mm-dd" />
+        <br />
+    </div>
+    <div class="col-md-3">
+        <label>Actions</label><br />
+        <button class="btn btn-primary" (click)="search()">Search</button>
+        &nbsp;
+        <button class="btn btn-primary" (click)="resetCriteria()">Reset</button>
+        <br />
+    </div>
+</div>
+
+<br/>
+
+<div>
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Author</th>
+            <th>Project</th>
+            <th>Report Date</th>
+        </tr>
+        <tr *ngFor="let statusReport of searchResults">
+            <td><a class="btn btn-xs btn-primary" routerLink="/createEdit/{{statusReport.Id}}">{{statusReport.Id}}</a></td>
+            <td>{{statusReport.User.Name}}</td>
+            <td>{{statusReport.Project.Name}}</td>
+            <td>{{statusReport.ReportDate}}</td>
+        </tr>
+    </table>
+</div>
+
