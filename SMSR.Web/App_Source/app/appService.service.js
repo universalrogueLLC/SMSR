@@ -57,11 +57,21 @@ var AppService = (function () {
         var url = this.statusReportBase + "/search";
         return this.httpClient.post(url, criteria);
     };
+    AppService.prototype.getStatusReport = function (id) {
+        return this.getEntity(id, this.statusReportBase);
+    };
     AppService.prototype.saveStatusReport = function (statusReport) {
         return this.saveEntity(statusReport, this.statusReportBase);
     };
     AppService.prototype.addStatusReport = function (statusReport) {
         return this.addEntity(statusReport, this.statusReportBase);
+    };
+    AppService.prototype.deleteStatusReport = function (id) {
+        return this.deleteEntity(id, this.statusReportBase);
+    };
+    AppService.prototype.getEntity = function (id, baseUrl) {
+        var url = baseUrl + "/" + id;
+        return this.httpClient.get(url);
     };
     AppService.prototype.getEntities = function (baseUrl) {
         return this.httpClient.get(baseUrl);
@@ -73,6 +83,10 @@ var AppService = (function () {
     AppService.prototype.addEntity = function (entity, baseUrl) {
         var url = "" + baseUrl;
         return this.httpClient.post(url, entity);
+    };
+    AppService.prototype.deleteEntity = function (id, baseUrl) {
+        var url = baseUrl + "/" + id;
+        return this.httpClient.delete(url);
     };
     AppService = __decorate([
         core_1.Injectable(),

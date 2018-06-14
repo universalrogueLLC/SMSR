@@ -32,12 +32,7 @@ export class ListComponent implements OnInit {
 
     search(): void {
         this.appService.searchStatusReports(this.criteria).subscribe((results) => {
-            this.searchResults = new Array<StatusReport>();
-            for (let i = 0; i < results.length; i++) {
-                let result = results[i];
-                result.ReportDate = result.ReportDate.substr(0, 10);
-                this.searchResults.push(result);
-            }
+            this.searchResults = results;
         });
     }
 

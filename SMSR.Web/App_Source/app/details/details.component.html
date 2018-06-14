@@ -1,0 +1,28 @@
+﻿<div>
+    <h1>SMSR - Status Report {{statusReport.Id}}</h1>
+</div>
+
+<div>
+    <button class="btn btn-primary btn-xs" (click)="editStatusReport()" [disabled]="!canEdit">Edit</button>&nbsp;
+    <button class="btn btn-primary btn-xs" (click)="deleteStatusReport()" [disabled]="!canDelete">Delete</button>&nbsp;
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-4">
+        <label for="author">Author</label><br/>
+        <span>{{statusReport.User.Name}}</span>
+    </div>
+    <div class="col-md-4">
+        <label for="author">Project</label><br/>
+        <span>{{statusReport.Project.Name}}</span>
+    </div>
+    <div class="col-md-4">
+        <label for="author">Report Date</label><br/>
+        <span>{{statusReport.ReportDate | slice:0:10}}</span>
+    </div>
+</div>
+
+<br/>
+

@@ -35,12 +35,7 @@ var ListComponent = (function () {
     ListComponent.prototype.search = function () {
         var _this = this;
         this.appService.searchStatusReports(this.criteria).subscribe(function (results) {
-            _this.searchResults = new Array();
-            for (var i = 0; i < results.length; i++) {
-                var result = results[i];
-                result.ReportDate = result.ReportDate.substr(0, 10);
-                _this.searchResults.push(result);
-            }
+            _this.searchResults = results;
         });
     };
     ListComponent.prototype.resetCriteria = function () {

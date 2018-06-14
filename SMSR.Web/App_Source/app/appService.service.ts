@@ -71,6 +71,10 @@ export class AppService {
         return this.httpClient.post<StatusReport[]>(url, criteria);
     }
 
+    getStatusReport(id: number): Observable<StatusReport> {
+        return this.getEntity<StatusReport>(id, this.statusReportBase);
+    }
+
     saveStatusReport(statusReport: StatusReport): Observable<any> {
         return this.saveEntity(statusReport, this.statusReportBase);
     }
@@ -79,7 +83,16 @@ export class AppService {
         return this.addEntity<StatusReport>(statusReport, this.statusReportBase);
     }
 
+    deleteStatusReport(id: number): Observable<any> {
+        return this.deleteEntity(id, this.statusReportBase);
+    }
+
     // Generic
+
+    getEntity<T>(id: number, baseUrl: string): Observable<T> {
+        let url = `${baseUrl}/${id}`;
+        return this.httpClient.get<T>(url);
+    }
 
     getEntities<T>(baseUrl: string): Observable<T[]> {
         return this.httpClient.get<T[]>(baseUrl);
@@ -93,5 +106,10 @@ export class AppService {
     addEntity<T>(entity: T, baseUrl: string): Observable<T> {
         let url = `${baseUrl}`;
         return this.httpClient.post<T>(url, entity);
+    }
+
+    deleteEntity(id: number, baseUrl: string): Observable<any> {
+        let url = `${baseUrl}/${id}`;
+        return this.httpClient.delete(url);
     }
 }
