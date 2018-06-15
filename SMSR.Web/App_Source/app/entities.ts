@@ -31,6 +31,11 @@ export class StatusReport implements ISMSREntity {
     UserId: number;
     User: User;
     Entries: StatusReportEntry[];
+
+    constructor() {
+        this.Id = 0;
+        this.Entries = new Array<StatusReportEntry>();
+    }
 }
 
 export class StatusReportEntry implements ISMSREntity {

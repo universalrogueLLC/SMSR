@@ -77,7 +77,58 @@ namespace SMSR.Web.Controllers
                 return NotFound();
             }
 
-            return Ok(statusReport);
+            var result = CloneStatusReport(statusReport);
+
+            return Ok(result);
+        }
+
+        private StatusReport CloneStatusReport(StatusReport source)
+        {
+            var result = new StatusReport()
+            {
+                Id = source.Id,
+                ProjectId = source.ProjectId,
+                Project = new Project()
+                {
+                    Id = source.Project.Id,
+                    IsActive = source.Project.IsActive,
+                    Name = source.Project.Name
+                },
+                ReportDate = source.ReportDate,
+                UserId = source.UserId,
+                User = new User()
+                {
+                    Id = source.User.Id,
+                    DN = source.User.DN,
+                    IsActive = source.User.IsActive,
+                    IsAdmin = source.User.IsAdmin,
+                    IsAuthor = source.User.IsAuthor,
+                    Name = source.User.Name,
+                }
+            };
+
+            foreach (var srcStatusReportEntry in source.Entries)
+            {
+                var tgtStatusReportEntry = new StatusReportEntry()
+                {
+                    Id = srcStatusReportEntry.Id,
+                    EntryTypeId = srcStatusReportEntry.EntryTypeId,
+                    EntryType = new EntryType()
+                    {
+                        Id = srcStatusReportEntry.EntryType.Id,
+                        IsActive = srcStatusReportEntry.EntryType.IsActive,
+                        Name = srcStatusReportEntry.EntryType.Name
+                    },
+                    Notes = srcStatusReportEntry.Notes,
+                    StatusReportId = srcStatusReportEntry.StatusReportId,
+                    //StatusReport = result,
+                    Value = srcStatusReportEntry.Value
+                };
+
+                result.Entries.Add(tgtStatusReportEntry);
+            }
+
+            return result;
         }
 
         // PUT: api/StatusReports/5

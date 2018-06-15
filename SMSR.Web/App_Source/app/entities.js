@@ -20,6 +20,8 @@ var EntryType = (function () {
 exports.EntryType = EntryType;
 var StatusReport = (function () {
     function StatusReport() {
+        this.Id = 0;
+        this.Entries = new Array();
     }
     return StatusReport;
 }());

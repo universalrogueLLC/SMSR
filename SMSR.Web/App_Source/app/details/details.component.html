@@ -9,14 +9,14 @@
 
 <br/>
 
-<div class="row">
+<div *ngIf="statusReport.Id != 0" class="row">
     <div class="col-md-4">
         <label for="author">Author</label><br/>
-        <span>{{statusReport.User.Name}}</span>
+        <span *ngIf="statusReport.User">{{statusReport.User.Name}}</span>
     </div>
     <div class="col-md-4">
         <label for="author">Project</label><br/>
-        <span>{{statusReport.Project.Name}}</span>
+        <span *ngIf="statusReport.Project">{{statusReport.Project.Name}}</span>
     </div>
     <div class="col-md-4">
         <label for="author">Report Date</label><br/>
@@ -26,7 +26,7 @@
 
 <br/>
 
-<div>
+<div *ngIf="statusReport.Entries.length > 0">
     <table class="table table-condensed table-striped">
         <tr>
             <th>ID</th>
