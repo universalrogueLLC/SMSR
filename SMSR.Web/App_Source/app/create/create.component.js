@@ -41,9 +41,10 @@ var CreateComponent = (function () {
         });
     };
     CreateComponent.prototype.create = function () {
+        var reportDate = this.appService.formatDatePickerModelAsString(this.reportDateModel);
         var statusReport = new entities_1.StatusReport();
         statusReport.ProjectId = +this.selectedProjectId;
-        statusReport.ReportDate = this.reportDate;
+        statusReport.ReportDate = reportDate;
         statusReport.UserId = this.me.Id;
         this.appService.addStatusReport(statusReport).subscribe(function (result) {
             var id = result.Id;

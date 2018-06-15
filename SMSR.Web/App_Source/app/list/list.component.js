@@ -34,12 +34,16 @@ var ListComponent = (function () {
     };
     ListComponent.prototype.search = function () {
         var _this = this;
+        this.criteria.beginDate = this.appService.formatDatePickerModelAsString(this.beginDateModel);
+        this.criteria.endDate = this.appService.formatDatePickerModelAsString(this.endDateModel);
         this.appService.searchStatusReports(this.criteria).subscribe(function (results) {
             _this.searchResults = results;
         });
     };
     ListComponent.prototype.resetCriteria = function () {
         this.criteria = new types_1.SearchCriteria();
+        this.beginDateModel = new types_1.DatePickerModel();
+        this.endDateModel = new types_1.DatePickerModel();
     };
     ListComponent = __decorate([
         core_1.Component({

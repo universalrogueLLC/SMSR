@@ -3,6 +3,7 @@
 import { AppService } from "../appService.service";
 
 import { Project, User, StatusReport } from "../entities";
+import { DatePickerModel } from "../types";
 
 @Component({
     selector: 'app-create',
@@ -15,7 +16,7 @@ export class CreateComponent implements OnInit {
     selectedProjectId: string = "";
     projects: Project[] = new Array<Project>();
 
-    reportDate: string;
+    reportDateModel: DatePickerModel;
 
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 
@@ -41,9 +42,10 @@ export class CreateComponent implements OnInit {
     }
 
     create(): void {
+        let reportDate: string = this.appService.formatDatePickerModelAsString(this.reportDateModel);
         let statusReport = new StatusReport();
         statusReport.ProjectId = +this.selectedProjectId;
-        statusReport.ReportDate = this.reportDate;
+        statusReport.ReportDate = reportDate;
         statusReport.UserId = this.me.Id;
 
         this.appService.addStatusReport(statusReport).subscribe((result) => {

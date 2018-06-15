@@ -11,6 +11,7 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/common/http");
 var forms_1 = require("@angular/forms");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var appService_service_1 = require("./appService.service");
 var shell_component_1 = require("./shell/shell.component");
 var home_component_1 = require("./home/home.component");
@@ -40,6 +41,7 @@ var AppModule = (function () {
             ],
             imports: [
                 router_1.RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),
+                ng_bootstrap_1.NgbModule.forRoot(),
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpClientModule

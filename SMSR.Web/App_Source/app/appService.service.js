@@ -23,6 +23,17 @@ var AppService = (function () {
         this.statusReportBase = "/api/StatusReports";
         this.statusReportEntryBase = "/api/StatusReportEntries";
     }
+    AppService.prototype.formatDatePickerModelAsString = function (model) {
+        if (model == null || model.year == 0) {
+            return "";
+        }
+        var result = model.year.toString();
+        result += "-";
+        result += (model.month < 10) ? "0" + model.month : model.month.toString();
+        result += "-";
+        result += (model.day < 10) ? "0" + model.day : model.day.toString();
+        return result;
+    };
     AppService.prototype.getMe = function () {
         var url = this.userBase + "/0";
         return this.httpClient.get(url);

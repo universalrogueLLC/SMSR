@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
 import { ISMSREntity, Project, User, EntryType, StatusReport, StatusReportEntry } from "./entities";
-import { SearchCriteria, SearchResult } from "./types";
+import { SearchCriteria, SearchResult, DatePickerModel } from "./types";
 
 @Injectable()
 export class AppService {
@@ -17,6 +17,20 @@ export class AppService {
     statusReportEntryBase: string = "/api/StatusReportEntries";
 
     constructor( @Inject(forwardRef(() => HttpClient)) private httpClient: HttpClient) { }
+
+    formatDatePickerModelAsString(model: DatePickerModel): string {
+
+        if (model == null || model.year == 0) {
+            return "";
+        }
+
+        var result = model.year.toString();
+        result += "-";
+        result += (model.month < 10) ? `0${model.month}` : model.month.toString();
+        result += "-";
+        result += (model.day < 10) ? `0${model.day}` : model.day.toString();
+        return result;
+    }
 
     // Users
 

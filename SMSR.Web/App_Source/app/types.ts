@@ -18,3 +18,9 @@ export class SearchResult {
     Project: string;
     ReportDate: string;
 }
+
+export class DatePickerModel {
+    year: number;
+    month: number;
+    day: number;
+}

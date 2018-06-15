@@ -16,4 +16,10 @@ var SearchResult = (function () {
     return SearchResult;
 }());
 exports.SearchResult = SearchResult;
+var DatePickerModel = (function () {
+    function DatePickerModel() {
+    }
+    return DatePickerModel;
+}());
+exports.DatePickerModel = DatePickerModel;
 //# sourceMappingURL=types.js.map

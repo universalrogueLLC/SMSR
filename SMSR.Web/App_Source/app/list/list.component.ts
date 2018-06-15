@@ -3,7 +3,7 @@
 import { AppService } from "../appService.service";
 
 import { Project, User, StatusReport } from "../entities";
-import { SearchCriteria, SearchResult } from "../types";
+import { SearchCriteria, SearchResult, DatePickerModel } from "../types";
 
 @Component({
     selector: 'app-list',
@@ -18,6 +18,9 @@ export class ListComponent implements OnInit {
 
     searchResults: SearchResult[] = new Array<SearchResult>();
 
+    beginDateModel: DatePickerModel;
+    endDateModel: DatePickerModel;
+
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 
     ngOnInit(): void {
@@ -31,6 +34,8 @@ export class ListComponent implements OnInit {
     }
 
     search(): void {
+        this.criteria.beginDate = this.appService.formatDatePickerModelAsString(this.beginDateModel);
+        this.criteria.endDate = this.appService.formatDatePickerModelAsString(this.endDateModel);
         this.appService.searchStatusReports(this.criteria).subscribe((results) => {
             this.searchResults = results;
         });
@@ -38,5 +43,7 @@ export class ListComponent implements OnInit {
 
     resetCriteria(): void {
         this.criteria = new SearchCriteria();
+        this.beginDateModel = new DatePickerModel();
+        this.endDateModel = new DatePickerModel();
     }
 }

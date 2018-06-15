@@ -17,7 +17,13 @@
     </div>
     <div class="col-md-3">
         <label>Report Date</label>
-        <input class="form-control" [(ngModel)]="reportDate" placeholder="yyyy-mm-dd" />
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="reportDate" [(ngModel)]="reportDateModel" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">...</button>
+            </div>
+        </div>
         <br />
     </div>
     <div class="col-md-3">

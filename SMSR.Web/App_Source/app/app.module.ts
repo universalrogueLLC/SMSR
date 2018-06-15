@@ -4,6 +4,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppService } from "./appService.service";
 
 import { ShellComponent } from "./shell/shell.component";
@@ -32,6 +34,7 @@ let appRoutes: Routes = [
     ],
     imports: [
         RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),
+        NgbModule.forRoot(),
         BrowserModule,
         FormsModule,
         HttpClientModule

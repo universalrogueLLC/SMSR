@@ -21,10 +21,22 @@
     </div>
     <div class="col-md-3">
         <label for="beginDate">Begin Date</label>
-        <input id="beginDate" class="form-control" [(ngModel)]="criteria.beginDate" placeholder="yyyy-mm-dd" />
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="beginDate" [(ngModel)]="beginDateModel" ngbDatepicker #d1="ngbDatepicker">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">...</button>
+            </div>
+        </div>
         <br />
         <label for="endDate">End Date</label>
-        <input id="endDate" class="form-control" [(ngModel)]="criteria.endDate" placeholder="yyyy-mm-dd" />
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="endDate" [(ngModel)]="endDateModel" ngbDatepicker #d2="ngbDatepicker">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">...</button>
+            </div>
+        </div>
         <br />
     </div>
     <div class="col-md-3">
