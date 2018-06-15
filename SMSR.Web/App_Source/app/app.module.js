@@ -14,14 +14,14 @@ var forms_1 = require("@angular/forms");
 var appService_service_1 = require("./appService.service");
 var shell_component_1 = require("./shell/shell.component");
 var home_component_1 = require("./home/home.component");
-var createEdit_component_1 = require("./createEdit/createEdit.component");
+var edit_component_1 = require("./edit/edit.component");
 var list_component_1 = require("./list/list.component");
 var generateMSR_component_1 = require("./generateMSR/generateMSR.component");
 var admin_component_1 = require("./admin/admin.component");
 var details_component_1 = require("./details/details.component");
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
-    { path: 'createEdit/:id', component: createEdit_component_1.CreateEditComponent },
+    { path: 'edit/:id', component: edit_component_1.EditComponent },
     { path: 'details/:id', component: details_component_1.DetailsComponent },
     { path: 'list', component: list_component_1.ListComponent },
     { path: 'generateMSR', component: generateMSR_component_1.GenerateMSRComponent },
@@ -34,7 +34,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                shell_component_1.ShellComponent, home_component_1.HomeComponent, createEdit_component_1.CreateEditComponent, details_component_1.DetailsComponent, list_component_1.ListComponent, generateMSR_component_1.GenerateMSRComponent, admin_component_1.AdminComponent
+                shell_component_1.ShellComponent, home_component_1.HomeComponent, edit_component_1.EditComponent, details_component_1.DetailsComponent, list_component_1.ListComponent, generateMSR_component_1.GenerateMSRComponent, admin_component_1.AdminComponent
             ],
             imports: [
                 router_1.RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),

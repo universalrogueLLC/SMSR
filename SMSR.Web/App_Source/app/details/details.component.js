@@ -39,7 +39,7 @@ var DetailsComponent = (function () {
         });
     };
     DetailsComponent.prototype.editStatusReport = function () {
-        var editUrl = "/#/createEdit/" + this.statusReport.Id;
+        var editUrl = "/#/edit/" + this.statusReport.Id;
         document.location.href = editUrl;
     };
     DetailsComponent.prototype.deleteStatusReport = function () {

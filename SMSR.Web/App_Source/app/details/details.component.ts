@@ -38,7 +38,7 @@ export class DetailsComponent implements OnInit {
     }
 
     editStatusReport(): void {
-        let editUrl = `/#/createEdit/${this.statusReport.Id}`;
+        let editUrl = `/#/edit/${this.statusReport.Id}`;
         document.location.href = editUrl;
     }
 
