@@ -1,23 +1,19 @@
-﻿<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a routerLink="/home" class="navbar-brand">SMSR</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a routerLink="/create" *ngIf="me && me.IsActive && me.IsAuthor">Create Report</a></li>
-                <li><a routerLink="/list" *ngIf="me && me.IsActive && me.IsAuthor">List Reports</a></li>
-                <li><a routerLink="/generateMSR" *ngIf="me && me.IsActive && me.IsAdmin">Generate MSR</a></li>
-                <li><a routerLink="/admin" *ngIf="me && me.IsActive && me.IsAdmin">Admin</a></li>
-            </ul>
-        </div>
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" routerLink="/home">SMSR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li><a class="nav-link" routerLink="/create" *ngIf="me && me.IsActive && me.IsAuthor">Create Report</a></li>
+            <li><a class="nav-link" routerLink="/list" *ngIf="me && me.IsActive && me.IsAuthor">List Reports</a></li>
+            <li><a class="nav-link" routerLink="/generateMSR" *ngIf="me && me.IsActive && me.IsAdmin">Generate MSR</a></li>
+            <li><a class="nav-link" routerLink="/admin" *ngIf="me && me.IsActive && me.IsAdmin">Admin</a></li>
+        </ul>
     </div>
-</div>
-<div class="container body-content">
+</nav>
+<div class="container-fluid body-content">
+    <br/>
     <router-outlet></router-outlet>
 </div>

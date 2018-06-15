@@ -22,14 +22,14 @@
         <tr *ngFor="let project of projects; let i = index">
             <td>{{project.Id}}</td>
             <td><input class="form-control" [(ngModel)]="project.Name" /></td>
-            <td><input type="checkbox" [(ngModel)]="project.IsActive" /></td>
-            <td><button class="btn btn-xs btn-primary" (click)="saveProject(i)">Save</button></td>
+            <td><input type="checkbox" class="form-check-input" [(ngModel)]="project.IsActive" /></td>
+            <td><button class="btn btn-sm btn-primary" (click)="saveProject(i)">Save</button></td>
         </tr>
         <tr>
             <td>*</td>
             <td><input class="form-control" [(ngModel)]="newProject.Name" /></td>
             <td><input type="checkbox" [(ngModel)]="newProject.IsActive" /></td>
-            <td><button class="btn btn-xs btn-primary" (click)="addProject()">Add</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="addProject()">Add</button></td>
         </tr>
     </table>
 </div>
@@ -52,7 +52,7 @@
             <td><input type="checkbox" [(ngModel)]="user.IsAuthor" /></td>
             <td><input type="checkbox" [(ngModel)]="user.IsAdmin" /></td>
             <td><input type="checkbox" [(ngModel)]="user.IsActive" /></td>
-            <td><button class="btn btn-xs btn-primary" (click)="saveUser(i)">Save</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="saveUser(i)">Save</button></td>
         </tr>
         <tr>
             <td>*</td>
@@ -61,7 +61,7 @@
             <td><input type="checkbox" [(ngModel)]="newUser.IsAuthor" /></td>
             <td><input type="checkbox" [(ngModel)]="newUser.IsAdmin" /></td>
             <td><input type="checkbox" [(ngModel)]="newUser.IsActive" /></td>
-            <td><button class="btn btn-xs btn-primary" (click)="addUser()">Add</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="addUser()">Add</button></td>
         </tr>
     </table>
 </div>
@@ -78,13 +78,13 @@
             <td>{{entryType.Id}}</td>
             <td><input class="form-control" [(ngModel)]="entryType.Name" /></td>
             <td><input type="checkbox" [(ngModel)]="entryType.IsActive" /></td>
-            <td><button class="btn btn-xs btn-primary" (click)="saveEntryType(i)">Save</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="saveEntryType(i)">Save</button></td>
         </tr>
         <tr>
             <td>*</td>
             <td><input class="form-control" [(ngModel)]="newEntryType.Name" /></td>
             <td><input type="checkbox" [(ngModel)]="newEntryType.IsActive" /></td>
-            <td><button class="btn btn-xs btn-primary" (click)="addEntryType()">Add</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="addEntryType()">Add</button></td>
         </tr>
     </table>
 </div>

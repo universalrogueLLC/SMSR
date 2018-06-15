@@ -193,6 +193,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Dist\bootstrap-css\bootstrap-grid.css" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap-grid.min.css" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap-reboot.css" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap-reboot.min.css" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap.css" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap.min.css" />
     <Content Include="App_Dist\main.js" />
     <Content Include="App_Dist\zone.js" />
     <Content Include="App_Source\app\admin\admin.component.html" />
@@ -203,24 +209,12 @@
     <Content Include="App_Source\app\home\home.component.html" />
     <Content Include="App_Source\app\list\list.component.html" />
     <Content Include="App_Source\app\shell\shell.component.html" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="package.json" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -241,33 +235,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css.map" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="App_Dist\bootstrap-css\bootstrap-grid.css.map" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap-grid.min.css.map" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap-reboot.css.map" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap-reboot.min.css.map" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap.css.map" />
+    <Content Include="App_Dist\bootstrap-css\bootstrap.min.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMSR.Context\SMSR.Context.csproj">

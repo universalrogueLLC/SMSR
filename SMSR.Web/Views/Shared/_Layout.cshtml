@@ -9,10 +9,9 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @RenderBody()
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
     <script src="~/App_Dist/zone.js"></script>
     <script src="~/App_Dist/main.js"></script>
     @RenderSection("scripts", required: false)
