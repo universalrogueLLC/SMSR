@@ -46,11 +46,11 @@
             <th>Project</th>
             <th>Report Date</th>
         </tr>
-        <tr *ngFor="let statusReport of searchResults">
-            <td><a class="btn btn-xs btn-primary" routerLink="/details/{{statusReport.Id}}">{{statusReport.Id}}</a></td>
-            <td>{{statusReport.User.Name}}</td>
-            <td>{{statusReport.Project.Name}}</td>
-            <td>{{statusReport.ReportDate | slice:0:10}}</td>
+        <tr *ngFor="let searchResult of searchResults">
+            <td><a class="btn btn-xs btn-primary" routerLink="/details/{{searchResult.Id}}">{{searchResult.Id}}</a></td>
+            <td>{{searchResult.Author}}</td>
+            <td>{{searchResult.Project}}</td>
+            <td>{{searchResult.ReportDate | slice:0:10}}</td>
         </tr>
     </table>
 </div>

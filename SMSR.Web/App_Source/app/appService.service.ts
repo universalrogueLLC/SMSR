@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
 import { ISMSREntity, Project, User, EntryType, StatusReport } from "./entities";
-import { SearchCriteria } from "./types";
+import { SearchCriteria, SearchResult } from "./types";
 
 @Injectable()
 export class AppService {
@@ -66,9 +66,9 @@ export class AppService {
 
     // StatusReports
 
-    searchStatusReports(criteria: SearchCriteria): Observable<StatusReport[]> {
+    searchStatusReports(criteria: SearchCriteria): Observable<SearchResult[]> {
         let url = `${this.statusReportBase}/search`;
-        return this.httpClient.post<StatusReport[]>(url, criteria);
+        return this.httpClient.post<SearchResult[]>(url, criteria);
     }
 
     getStatusReport(id: number): Observable<StatusReport> {

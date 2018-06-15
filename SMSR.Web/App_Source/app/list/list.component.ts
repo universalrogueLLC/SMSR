@@ -3,7 +3,7 @@
 import { AppService } from "../appService.service";
 
 import { Project, User, StatusReport } from "../entities";
-import { SearchCriteria } from "../types";
+import { SearchCriteria, SearchResult } from "../types";
 
 @Component({
     selector: 'app-list',
@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
 
     projects: Project[] = new Array<Project>();
 
-    searchResults: StatusReport[] = new Array<StatusReport>();
+    searchResults: SearchResult[] = new Array<SearchResult>();
 
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 

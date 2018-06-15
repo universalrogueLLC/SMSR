@@ -24,36 +24,47 @@ namespace SMSR.Web.Controllers
 
         [HttpPost]
         [Route("api/StatusReports/search")]
-        public List<StatusReport> SearchStatusReports(SearchCriteria criteria)
+        public List<SearchResult> SearchStatusReports(SearchCriteria criteria)
         {
-            var results = db.StatusReports.AsQueryable();
+            var queryable = db.StatusReports.AsQueryable();
 
             if (criteria.projectId != "---")
             {
                 var projectId = Int32.Parse(criteria.projectId);
-                results = results.Where(x => x.ProjectId == projectId);
+                queryable = queryable.Where(x => x.ProjectId == projectId);
             }
 
             if (criteria.userId != "---")
             {
                 var userId = Int32.Parse(criteria.userId);
-                results = results.Where(x => x.UserId == userId);
+                queryable = queryable.Where(x => x.UserId == userId);
             }
 
             if (criteria.beginDate != "")
             {
                 var date = DateTime.Parse(criteria.beginDate);
-                results = results.Where(x => x.ReportDate >= date);
+                queryable = queryable.Where(x => x.ReportDate >= date);
             }
 
             if (criteria.endDate != "")
             {
                 var date = DateTime.Parse(criteria.endDate);
                 date = date.AddDays(1);
-                results = results.Where(x => x.ReportDate < date);
+                queryable = queryable.Where(x => x.ReportDate < date);
             }
 
-            return results.ToList();
+            return PrepareSearchResults(queryable);
+        }
+
+        private List<SearchResult> PrepareSearchResults(IQueryable<StatusReport> queryable)
+        {
+            return queryable.Select(x => new SearchResult()
+            {
+                Id = x.Id,
+                Author = x.User.Name,
+                Project = x.Project.Name,
+                ReportDate = x.ReportDate
+            }).ToList();
         }
 
         // GET: api/StatusReports/5

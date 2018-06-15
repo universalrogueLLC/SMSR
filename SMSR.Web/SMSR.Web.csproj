@@ -188,6 +188,7 @@
     </Compile>
     <Compile Include="Models\AboutMe.cs" />
     <Compile Include="Models\SearchCriteria.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

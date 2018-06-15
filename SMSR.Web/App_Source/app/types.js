@@ -10,4 +10,10 @@ var SearchCriteria = (function () {
     return SearchCriteria;
 }());
 exports.SearchCriteria = SearchCriteria;
+var SearchResult = (function () {
+    function SearchResult() {
+    }
+    return SearchResult;
+}());
+exports.SearchResult = SearchResult;
 //# sourceMappingURL=types.js.map

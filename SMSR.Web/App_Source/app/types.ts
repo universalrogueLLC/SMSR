@@ -11,3 +11,10 @@
         this.endDate = "";
     }
 }
+
+export class SearchResult {
+    Id: number;
+    Author: string;
+    Project: string;
+    ReportDate: string;
+}

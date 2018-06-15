@@ -26,3 +26,19 @@
 
 <br/>
 
+<div>
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Value</th>
+            <th>Notes</th>
+        </tr>
+        <tr *ngFor="let entry of statusReport.Entries">
+            <td>{{entry.Id}}</td>
+            <td>{{entry.EntryType.Name}}</td>
+            <td>{{entry.Value}}</td>
+            <td>{{entry.Notes}}</td>
+        </tr>
+    </table>
+</div>
