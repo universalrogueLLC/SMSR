@@ -28,7 +28,12 @@ export class EditComponent implements OnInit {
         let id = +this.activatedRoute.snapshot.paramMap.get('id');
 
         this.appService.getEntryTypes().subscribe((entryTypes) => {
-            this.entryTypes = entryTypes;
+            for (let i = 0; i < entryTypes.length; i++) {
+                let entryType = entryTypes[i];
+                if (entryType.IsActive) {
+                    this.entryTypes.push(entryType);
+                }
+            }
         });
 
         this.appService.getStatusReport(id).subscribe((statusReport) => {

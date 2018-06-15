@@ -25,7 +25,13 @@ export class CreateComponent implements OnInit {
         });
 
         this.appService.getProjects().subscribe((projects) => {
-            this.projects = projects;
+            for (let i = 0; i < projects.length; i++) {
+                let project = projects[i];
+                if (project.IsActive) {
+                    this.projects.push(project);
+                }
+            }
+
             for (let i = 0; i < this.projects.length; i++) {
                 if (this.selectedProjectId == "") {
                     this.selectedProjectId = this.projects[i].Id.toString();

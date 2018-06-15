@@ -30,7 +30,12 @@ var EditComponent = (function () {
         var _this = this;
         var id = +this.activatedRoute.snapshot.paramMap.get('id');
         this.appService.getEntryTypes().subscribe(function (entryTypes) {
-            _this.entryTypes = entryTypes;
+            for (var i = 0; i < entryTypes.length; i++) {
+                var entryType = entryTypes[i];
+                if (entryType.IsActive) {
+                    _this.entryTypes.push(entryType);
+                }
+            }
         });
         this.appService.getStatusReport(id).subscribe(function (statusReport) {
             _this.statusReport = statusReport;

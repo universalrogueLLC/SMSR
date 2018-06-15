@@ -27,7 +27,12 @@ var CreateComponent = (function () {
             _this.me = user;
         });
         this.appService.getProjects().subscribe(function (projects) {
-            _this.projects = projects;
+            for (var i = 0; i < projects.length; i++) {
+                var project = projects[i];
+                if (project.IsActive) {
+                    _this.projects.push(project);
+                }
+            }
             for (var i = 0; i < _this.projects.length; i++) {
                 if (_this.selectedProjectId == "") {
                     _this.selectedProjectId = _this.projects[i].Id.toString();
