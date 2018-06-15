@@ -60,15 +60,31 @@ export class EditComponent implements OnInit {
         this.appService.addStatusReportEntry(this.newEntry).subscribe((result) => {
             this.statusReport.Entries.push(result);
             this.initNewEntry();
-            alert("Entry added");
         });
     }
 
     saveEntry(index: number): void {
-        alert("not implemented");
+        let entry = this.statusReport.Entries[index];
+        let saveEntry: StatusReportEntry = {
+            Id: entry.Id,
+            EntryTypeId: entry.EntryTypeId,
+            Notes: entry.Notes,
+            StatusReportId: entry.StatusReportId,
+            Value: entry.Value,
+            EntryType: null
+        };
+
+        this.appService.saveStatusReportEntry(saveEntry).subscribe((result) => {
+            alert("Entry saved");
+        });
     }
 
     deleteEntry(index: number): void {
-        alert("not implemented");
+        if (confirm("Are you sure you want to delete this entry?")) {
+            let entry = this.statusReport.Entries[index];
+            this.appService.deleteStatusReportEntry(entry.Id).subscribe((result) => {
+                this.statusReport.Entries.splice(index, 1);
+            });
+        }
     }
 }

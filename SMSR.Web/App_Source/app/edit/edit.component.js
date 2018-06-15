@@ -58,14 +58,30 @@ var EditComponent = (function () {
         this.appService.addStatusReportEntry(this.newEntry).subscribe(function (result) {
             _this.statusReport.Entries.push(result);
             _this.initNewEntry();
-            alert("Entry added");
         });
     };
     EditComponent.prototype.saveEntry = function (index) {
-        alert("not implemented");
+        var entry = this.statusReport.Entries[index];
+        var saveEntry = {
+            Id: entry.Id,
+            EntryTypeId: entry.EntryTypeId,
+            Notes: entry.Notes,
+            StatusReportId: entry.StatusReportId,
+            Value: entry.Value,
+            EntryType: null
+        };
+        this.appService.saveStatusReportEntry(saveEntry).subscribe(function (result) {
+            alert("Entry saved");
+        });
     };
     EditComponent.prototype.deleteEntry = function (index) {
-        alert("not implemented");
+        var _this = this;
+        if (confirm("Are you sure you want to delete this entry?")) {
+            var entry = this.statusReport.Entries[index];
+            this.appService.deleteStatusReportEntry(entry.Id).subscribe(function (result) {
+                _this.statusReport.Entries.splice(index, 1);
+            });
+        }
     };
     EditComponent = __decorate([
         core_1.Component({

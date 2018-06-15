@@ -47,7 +47,6 @@ export class AdminComponent implements OnInit {
         this.appService.addProject(this.newProject).subscribe((result) => {
             this.projects.push(result);
             this.newProject = new Project();
-            alert("Project added");
         });
     }
 
@@ -62,7 +61,6 @@ export class AdminComponent implements OnInit {
         this.appService.addUser(this.newUser).subscribe((result) => {
             this.users.push(result);
             this.newUser = new User();
-            alert("User added");
         });
     }
 
@@ -77,7 +75,6 @@ export class AdminComponent implements OnInit {
         this.appService.addEntryType(this.newEntryType).subscribe((result) => {
             this.entryTypes.push(result);
             this.newEntryType = new EntryType();
-            alert("Entry Type added");
         });
     }
 }

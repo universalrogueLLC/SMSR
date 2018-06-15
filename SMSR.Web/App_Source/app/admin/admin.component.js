@@ -49,7 +49,6 @@ var AdminComponent = (function () {
         this.appService.addProject(this.newProject).subscribe(function (result) {
             _this.projects.push(result);
             _this.newProject = new entities_1.Project();
-            alert("Project added");
         });
     };
     AdminComponent.prototype.saveUser = function (index) {
@@ -63,7 +62,6 @@ var AdminComponent = (function () {
         this.appService.addUser(this.newUser).subscribe(function (result) {
             _this.users.push(result);
             _this.newUser = new entities_1.User();
-            alert("User added");
         });
     };
     AdminComponent.prototype.saveEntryType = function (index) {
@@ -77,7 +75,6 @@ var AdminComponent = (function () {
         this.appService.addEntryType(this.newEntryType).subscribe(function (result) {
             _this.entryTypes.push(result);
             _this.newEntryType = new entities_1.EntryType();
-            alert("Entry Type added");
         });
     };
     AdminComponent = __decorate([
