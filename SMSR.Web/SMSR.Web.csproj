@@ -195,6 +195,7 @@
     <Content Include="App_Dist\main.js" />
     <Content Include="App_Dist\zone.js" />
     <Content Include="App_Source\app\admin\admin.component.html" />
+    <Content Include="App_Source\app\create\create.component.html" />
     <Content Include="App_Source\app\edit\edit.component.html" />
     <Content Include="App_Source\app\details\details.component.html" />
     <Content Include="App_Source\app\generateMSR\generateMSR.component.html" />
@@ -281,6 +282,7 @@
     <TypeScriptCompile Include="App_Source\app\admin\admin.component.ts" />
     <TypeScriptCompile Include="App_Source\app\app.module.ts" />
     <TypeScriptCompile Include="App_Source\app\appService.service.ts" />
+    <TypeScriptCompile Include="App_Source\app\create\create.component.ts" />
     <TypeScriptCompile Include="App_Source\app\edit\edit.component.ts" />
     <TypeScriptCompile Include="App_Source\app\details\details.component.ts" />
     <TypeScriptCompile Include="App_Source\app\entities.ts" />

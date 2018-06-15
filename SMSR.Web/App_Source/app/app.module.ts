@@ -8,6 +8,7 @@ import { AppService } from "./appService.service";
 
 import { ShellComponent } from "./shell/shell.component";
 import { HomeComponent } from './home/home.component';
+import { CreateComponent } from "./create/create.component";
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { GenerateMSRComponent } from './generateMSR/generateMSR.component';
@@ -16,6 +17,7 @@ import { DetailsComponent } from "./details/details.component";
 
 let appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'create', component: CreateComponent },
     { path: 'edit/:id', component: EditComponent },
     { path: 'details/:id', component: DetailsComponent },
     { path: 'list', component: ListComponent },
@@ -26,7 +28,7 @@ let appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        ShellComponent, HomeComponent, EditComponent, DetailsComponent, ListComponent, GenerateMSRComponent, AdminComponent
+        ShellComponent, HomeComponent, CreateComponent, EditComponent, DetailsComponent, ListComponent, GenerateMSRComponent, AdminComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),
