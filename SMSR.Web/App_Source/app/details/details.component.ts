@@ -1,11 +1,9 @@
 ﻿import { Component, Inject, forwardRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { AppService } from "../appService.service";
 
 import { Project, User, StatusReport } from "../entities";
-import { SearchCriteria } from "../types";
 
 @Component({
     selector: 'app-list',
@@ -20,8 +18,7 @@ export class DetailsComponent implements OnInit {
     statusReport: StatusReport = new StatusReport();
 
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService,
-        @Inject(forwardRef(() => ActivatedRoute)) private activatedRoute: ActivatedRoute,
-        @Inject(forwardRef(() => Location)) private location: Location) { }
+        @Inject(forwardRef(() => ActivatedRoute)) private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         let id = +this.activatedRoute.snapshot.paramMap.get('id');

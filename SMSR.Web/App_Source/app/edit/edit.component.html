@@ -1,3 +1,73 @@
 ﻿<div>
-    <h1>SMSR - Edit Status Report</h1>
+    <h1>SMSR - Edit Status Report {{statusReport.Id}}</h1>
+</div>
+
+<div>
+    <button class="btn btn-primary btn-xs" (click)="deleteStatusReport()" [disabled]="!canDelete">Delete</button>&nbsp;
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <label for="author">Author</label><br />
+        <span *ngIf="statusReport.User">{{statusReport.User.Name}}</span>
+    </div>
+    <div class="col-md-4">
+        <label for="author">Project</label><br />
+        <span *ngIf="statusReport.Project">{{statusReport.Project.Name}}</span>
+    </div>
+    <div class="col-md-4">
+        <label for="author">Report Date</label><br />
+        <span>{{statusReport.ReportDate | slice:0:10}}</span>
+    </div>
+</div>
+
+<br />
+
+<div>
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Value</th>
+            <th>Notes</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let entry of statusReport.Entries; let i = index">
+            <td>{{entry.Id}}</td>
+            <td>
+                <select class="form-control" [(ngModel)]="entry.EntryTypeId">
+                    <option *ngFor="let entryType of entryTypes" value="{{entryType.Id}}">{{entryType.Name}}</option>
+                </select>
+            </td>
+            <td>
+                <textarea class="form-control" [(ngModel)]="entry.Value"></textarea>
+            </td>
+            <td>
+                <textarea class="form-control" [(ngModel)]="entry.Notes"></textarea>
+            </td>
+            <td>
+                <button class="btn btn-xs btn-primary" (click)="saveEntry(i)" [disabled]="!canEdit">Save</button>
+                <button class="btn btn-xs btn-primary" (click)="deleteEntry(i)" [disabled]="!canEdit">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>
+                <select class="form-control" [(ngModel)]="newEntry.EntryTypeId">
+                    <option *ngFor="let entryType of entryTypes" value="{{entryType.Id}}">{{entryType.Name}}</option>
+                </select>
+            </td>
+            <td>
+                <textarea class="form-control" [(ngModel)]="newEntry.Value"></textarea>
+            </td>
+            <td>
+                <textarea class="form-control" [(ngModel)]="newEntry.Notes"></textarea>
+            </td>
+            <td>
+                <button class="btn btn-xs btn-primary" (click)="addEntry()" [disabled]="!canEdit">Add</button>
+            </td>
+        </tr>
+    </table>
 </div>

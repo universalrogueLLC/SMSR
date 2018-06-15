@@ -14,14 +14,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
 var appService_service_1 = require("../appService.service");
 var entities_1 = require("../entities");
 var DetailsComponent = (function () {
-    function DetailsComponent(appService, activatedRoute, location) {
+    function DetailsComponent(appService, activatedRoute) {
         this.appService = appService;
         this.activatedRoute = activatedRoute;
-        this.location = location;
         this.canEdit = false;
         this.canDelete = false;
         this.statusReport = new entities_1.StatusReport();
@@ -56,10 +54,8 @@ var DetailsComponent = (function () {
         }),
         __param(0, core_1.Inject(core_1.forwardRef(function () { return appService_service_1.AppService; }))),
         __param(1, core_1.Inject(core_1.forwardRef(function () { return router_1.ActivatedRoute; }))),
-        __param(2, core_1.Inject(core_1.forwardRef(function () { return common_1.Location; }))),
         __metadata("design:paramtypes", [appService_service_1.AppService,
-            router_1.ActivatedRoute,
-            common_1.Location])
+            router_1.ActivatedRoute])
     ], DetailsComponent);
     return DetailsComponent;
 }());

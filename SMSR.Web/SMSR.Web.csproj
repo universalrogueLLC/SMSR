@@ -180,6 +180,7 @@
     <Compile Include="Controllers\EntryTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\StatusReportEntriesController.cs" />
     <Compile Include="Controllers\StatusReportsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

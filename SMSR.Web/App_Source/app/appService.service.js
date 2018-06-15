@@ -21,6 +21,7 @@ var AppService = (function () {
         this.userBase = "/api/Users";
         this.entryTypeBase = "/api/EntryTypes";
         this.statusReportBase = "/api/StatusReports";
+        this.statusReportEntryBase = "/api/StatusReportEntries";
     }
     AppService.prototype.getMe = function () {
         var url = this.userBase + "/0";
@@ -68,6 +69,18 @@ var AppService = (function () {
     };
     AppService.prototype.deleteStatusReport = function (id) {
         return this.deleteEntity(id, this.statusReportBase);
+    };
+    AppService.prototype.getStatusReportEntry = function (id) {
+        return this.getEntity(id, this.statusReportEntryBase);
+    };
+    AppService.prototype.saveStatusReportEntry = function (statusReportEntry) {
+        return this.saveEntity(statusReportEntry, this.statusReportEntryBase);
+    };
+    AppService.prototype.addStatusReportEntry = function (statusReportEntry) {
+        return this.addEntity(statusReportEntry, this.statusReportEntryBase);
+    };
+    AppService.prototype.deleteStatusReportEntry = function (id) {
+        return this.deleteEntity(id, this.statusReportEntryBase);
     };
     AppService.prototype.getEntity = function (id, baseUrl) {
         var url = baseUrl + "/" + id;

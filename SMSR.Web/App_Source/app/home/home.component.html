@@ -5,14 +5,22 @@
 <div class="row">
     <div class="col-md-3">
         <a routerLink="/create" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAuthor">Create Status Report</a>
+        <br />
+        <br />
     </div>
     <div class="col-md-3">
         <a routerLink="/list" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAuthor">List Status Reports</a>
+        <br />
+        <br />
     </div>
     <div class="col-md-3">
         <a routerLink="/generateMSR" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAdmin">Generate MSR</a>
+        <br />
+        <br />
     </div>
     <div class="col-md-3">
         <a routerLink="/admin" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAdmin">Admin</a>
+        <br />
+        <br />
     </div>
 </div>
