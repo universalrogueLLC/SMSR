@@ -34,6 +34,22 @@ var AppService = (function () {
         result += (model.day < 10) ? "0" + model.day : model.day.toString();
         return result;
     };
+    AppService.prototype.getAppActions = function (user) {
+        var result = new Array();
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/create", label: "Create Report" });
+        }
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/list", label: "List Reports" });
+        }
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/generateMSR", label: "Generate MSR" });
+        }
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/admin", label: "Admin" });
+        }
+        return result;
+    };
     AppService.prototype.getMe = function () {
         var url = this.userBase + "/0";
         return this.httpClient.get(url);

@@ -24,3 +24,8 @@ export class DatePickerModel {
     month: number;
     day: number;
 }
+
+export class AppAction {
+    route: string;
+    label: string;
+}

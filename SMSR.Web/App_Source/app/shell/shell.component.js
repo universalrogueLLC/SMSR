@@ -17,11 +17,13 @@ var appService_service_1 = require("../appService.service");
 var ShellComponent = (function () {
     function ShellComponent(appService) {
         this.appService = appService;
+        this.actions = new Array();
     }
     ShellComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.appService.getMe().subscribe(function (user) {
             _this.me = user;
+            _this.actions = _this.appService.getAppActions(_this.me);
         });
     };
     ShellComponent = __decorate([

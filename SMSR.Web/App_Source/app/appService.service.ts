@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
 import { ISMSREntity, Project, User, EntryType, StatusReport, StatusReportEntry } from "./entities";
-import { SearchCriteria, SearchResult, DatePickerModel } from "./types";
+import { SearchCriteria, SearchResult, DatePickerModel, AppAction } from "./types";
 
 @Injectable()
 export class AppService {
@@ -29,6 +29,28 @@ export class AppService {
         result += (model.month < 10) ? `0${model.month}` : model.month.toString();
         result += "-";
         result += (model.day < 10) ? `0${model.day}` : model.day.toString();
+        return result;
+    }
+
+    getAppActions(user: User): AppAction[] {
+        let result: AppAction[] = new Array<AppAction>();
+
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/create", label: "Create Report" });
+        }
+
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/list", label: "List Reports" });
+        }
+
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/generateMSR", label: "Generate MSR" });
+        }
+
+        if (user.IsActive && user.IsAuthor) {
+            result.push({ route: "/admin", label: "Admin" });
+        }
+
         return result;
     }
 

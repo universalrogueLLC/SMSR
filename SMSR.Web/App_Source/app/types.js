@@ -22,4 +22,10 @@ var DatePickerModel = (function () {
     return DatePickerModel;
 }());
 exports.DatePickerModel = DatePickerModel;
+var AppAction = (function () {
+    function AppAction() {
+    }
+    return AppAction;
+}());
+exports.AppAction = AppAction;
 //# sourceMappingURL=types.js.map
