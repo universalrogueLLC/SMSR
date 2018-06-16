@@ -309,7 +309,10 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>cd $(ProjectDir)
+
 .\node_modules\.bin\webpack --entry .\App_Source\main.js --output .\App_Dist\main.js
+
+REM ..\JsDecommenter\bin\debug\JsDecommenter.exe $(ProjectDir)App_Dist\main.js
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

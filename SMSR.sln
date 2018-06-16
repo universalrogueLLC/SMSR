@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsDecommenter", "JsDecommenter\JsDecommenter.csproj", "{2463445D-D995-403D-AB3A-429FE1B33F7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{FFE86466-A908-4914-8F1A-4EF8F0CC8CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFE86466-A908-4914-8F1A-4EF8F0CC8CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFE86466-A908-4914-8F1A-4EF8F0CC8CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2463445D-D995-403D-AB3A-429FE1B33F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2463445D-D995-403D-AB3A-429FE1B33F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2463445D-D995-403D-AB3A-429FE1B33F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2463445D-D995-403D-AB3A-429FE1B33F7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
