@@ -18,7 +18,6 @@ var entities_1 = require("../entities");
 var AdminComponent = (function () {
     function AdminComponent(appService) {
         this.appService = appService;
-        this.managing = "PROJECTS";
         this.newProject = new entities_1.Project();
         this.projects = new Array();
         this.newUser = new entities_1.User();

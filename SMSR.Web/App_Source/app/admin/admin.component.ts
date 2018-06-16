@@ -9,7 +9,6 @@ import { Project, User, EntryType } from "../entities";
     templateUrl: 'App_Source/app/admin/admin.component.html'
 })
 export class AdminComponent implements OnInit {
-    managing: string = "PROJECTS";
 
     newProject: Project = new Project();
     projects: Project[] = new Array<Project>();
