@@ -2,25 +2,8 @@
     <h1>SMSR - STARMAN Status Reports</h1>
     <p class="lead" *ngIf="meLabel != ''">Welcome, {{meLabel}}</p>
 </div>
-<div class="row">
-    <div class="col">
-        <a routerLink="/create" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAuthor">Create Status Report</a>
-        <br />
-        <br />
-    </div>
-    <div class="col">
-        <a routerLink="/list" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAuthor">List Status Reports</a>
-        <br />
-        <br />
-    </div>
-    <div class="col">
-        <a routerLink="/generateMSR" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAdmin">Generate MSR</a>
-        <br />
-        <br />
-    </div>
-    <div class="col">
-        <a routerLink="/admin" class="btn btn-primary" *ngIf="me && me.IsActive && me.IsAdmin">Admin</a>
-        <br />
-        <br />
-    </div>
+
+<div *ngFor="let action of actions">
+    <a class="btn btn-primary" routerLink="{{action.route}}">{{action.label}}</a>
+    <br/><br/>
 </div>

@@ -18,12 +18,14 @@ var HomeComponent = (function () {
     function HomeComponent(appService) {
         this.appService = appService;
         this.meLabel = "";
+        this.actions = new Array();
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.appService.getMe().subscribe(function (user) {
             _this.me = user;
             _this.meLabel = (user.Id == 0) ? user.DN : user.Name;
+            _this.actions = _this.appService.getAppActions(_this.me);
         });
     };
     HomeComponent = __decorate([
