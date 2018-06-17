@@ -16,10 +16,31 @@ namespace SMSR.Web.Controllers
     {
         private StatusReportContext db = new StatusReportContext();
 
-        // GET: api/StatusReports
-        public IQueryable<StatusReport> GetStatusReports()
+        [HttpPost]
+        [Route("api/StatusReports/generateMSR")]
+        public List<MSRSection> GenerateMSR(GenerateMSRCriteria criteria)
         {
-            return db.StatusReports;
+            var projectId = Int32.Parse(criteria.projectId);
+            var beginDate = DateTime.Parse(criteria.beginDate);
+            var endDate = DateTime.Parse(criteria.endDate);
+            endDate = endDate.AddDays(1);
+
+            var statusReports = db.StatusReports.Where(x => x.ProjectId == projectId &&
+                beginDate <= x.ReportDate && x.ReportDate < endDate);
+
+            var count = statusReports.Count();
+
+            var statusReportEntries = statusReports.SelectMany(x => x.Entries);
+
+            var entryGroups = statusReportEntries.GroupBy(x => x.EntryType.Name);
+
+            var result = entryGroups.Select(x => new MSRSection()
+            {
+                Name = x.Key,
+                Entries = x.Select(y => "[" + y.StatusReport.User.Name + "] " + y.Value).ToList()
+            }).ToList();
+
+            return result;
         }
 
         [HttpPost]
@@ -65,6 +86,12 @@ namespace SMSR.Web.Controllers
                 Project = x.Project.Name,
                 ReportDate = x.ReportDate
             }).ToList();
+        }
+
+        // GET: api/StatusReports
+        public IQueryable<StatusReport> GetStatusReports()
+        {
+            return db.StatusReports;
         }
 
         // GET: api/StatusReports/5

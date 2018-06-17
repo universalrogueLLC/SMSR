@@ -188,6 +188,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutMe.cs" />
+    <Compile Include="Models\GenerateMSRCriteria.cs" />
+    <Compile Include="Models\MSRSection.cs" />
     <Compile Include="Models\SearchCriteria.cs" />
     <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

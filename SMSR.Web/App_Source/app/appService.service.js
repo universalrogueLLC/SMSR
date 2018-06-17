@@ -85,6 +85,10 @@ var AppService = (function () {
         var url = this.statusReportBase + "/search";
         return this.httpClient.post(url, criteria);
     };
+    AppService.prototype.generateMSR = function (criteria) {
+        var url = this.statusReportBase + "/generateMSr";
+        return this.httpClient.post(url, criteria);
+    };
     AppService.prototype.getStatusReport = function (id) {
         return this.getEntity(id, this.statusReportBase);
     };

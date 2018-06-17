@@ -18,8 +18,9 @@ var types_1 = require("../types");
 var GenerateMSRComponent = (function () {
     function GenerateMSRComponent(appService) {
         this.appService = appService;
-        this.criteria = new types_1.GenerateCriteria();
+        this.criteria = new types_1.GenerateMSRCriteria();
         this.projects = new Array();
+        this.generationResults = new Array();
     }
     GenerateMSRComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,8 +29,12 @@ var GenerateMSRComponent = (function () {
         });
     };
     GenerateMSRComponent.prototype.generate = function () {
+        var _this = this;
         this.criteria.beginDate = this.appService.formatDatePickerModelAsString(this.beginDateModel);
         this.criteria.endDate = this.appService.formatDatePickerModelAsString(this.endDateModel);
+        this.appService.generateMSR(this.criteria).subscribe(function (result) {
+            _this.generationResults = result;
+        });
     };
     GenerateMSRComponent = __decorate([
         core_1.Component({

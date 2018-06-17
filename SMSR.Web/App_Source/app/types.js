@@ -22,10 +22,16 @@ var AppAction = (function () {
     return AppAction;
 }());
 exports.AppAction = AppAction;
-var GenerateCriteria = (function () {
-    function GenerateCriteria() {
+var GenerateMSRCriteria = (function () {
+    function GenerateMSRCriteria() {
     }
-    return GenerateCriteria;
+    return GenerateMSRCriteria;
 }());
-exports.GenerateCriteria = GenerateCriteria;
+exports.GenerateMSRCriteria = GenerateMSRCriteria;
+var MSRSection = (function () {
+    function MSRSection() {
+    }
+    return MSRSection;
+}());
+exports.MSRSection = MSRSection;
 //# sourceMappingURL=types.js.map

@@ -24,8 +24,13 @@ export class AppAction {
     label: string;
 }
 
-export class GenerateCriteria {
+export class GenerateMSRCriteria {
     projectId: string;
     beginDate: string;
     endDate: string;
+}
+
+export class MSRSection {
+    Name: string;
+    Entries: string[];
 }

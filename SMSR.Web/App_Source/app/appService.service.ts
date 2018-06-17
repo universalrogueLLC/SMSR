@@ -7,7 +7,7 @@ import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { Observable } from 'rxjs';
 
 import { ISMSREntity, Project, User, EntryType, StatusReport, StatusReportEntry } from "./entities";
-import { SearchCriteria, SearchResult, AppAction } from "./types";
+import { SearchCriteria, SearchResult, AppAction, GenerateMSRCriteria, MSRSection } from "./types";
 
 @Injectable()
 export class AppService {
@@ -108,6 +108,11 @@ export class AppService {
     searchStatusReports(criteria: SearchCriteria): Observable<SearchResult[]> {
         let url = `${this.statusReportBase}/search`;
         return this.httpClient.post<SearchResult[]>(url, criteria);
+    }
+
+    generateMSR(criteria: GenerateMSRCriteria): Observable<MSRSection[]> {
+        let url = `${this.statusReportBase}/generateMSr`;
+        return this.httpClient.post<MSRSection[]>(url, criteria);
     }
 
     getStatusReport(id: number): Observable<StatusReport> {
