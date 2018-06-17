@@ -1,1 +1,40 @@
-﻿GENERATE!
+﻿<div>
+    <h1>SMSR - Generate MSR</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <label for="project">Project</label>
+        <select id="project" class="form-control" [(ngModel)]="criteria.projectId">
+            <option *ngFor="let project of projects" value="{{project.Id.toString()}}">{{project.Name}}</option>
+        </select>
+        <br />
+    </div>
+    <div class="col-md-3">
+        <label for="beginDate">Begin Date</label>
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="beginDate" [(ngModel)]="beginDateModel" ngbDatepicker #d1="ngbDatepicker">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">...</button>
+            </div>
+        </div>
+        <br />
+    </div>
+    <div class="col-md-3">
+        <label for="endDate">End Date</label>
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="endDate" [(ngModel)]="endDateModel" ngbDatepicker #d2="ngbDatepicker">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">...</button>
+            </div>
+        </div>
+        <br />
+    </div>
+    <div class="col-md-3">
+        <label>Actions</label><br />
+        <button class="btn btn-primary" (click)="generate()">Generate</button>
+        <br />
+    </div>
+</div>

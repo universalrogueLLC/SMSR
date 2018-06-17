@@ -1,9 +1,11 @@
 ﻿import { Component, Inject, forwardRef, OnInit } from '@angular/core';
 
+import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+
 import { AppService } from "../appService.service";
 
 import { Project, User, StatusReport } from "../entities";
-import { SearchCriteria, SearchResult, DatePickerModel } from "../types";
+import { SearchCriteria, SearchResult } from "../types";
 
 @Component({
     selector: 'app-list',
@@ -18,8 +20,8 @@ export class ListComponent implements OnInit {
 
     searchResults: SearchResult[] = new Array<SearchResult>();
 
-    beginDateModel: DatePickerModel;
-    endDateModel: DatePickerModel;
+    beginDateModel: NgbDateStruct;
+    endDateModel: NgbDateStruct;
 
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 
@@ -43,7 +45,7 @@ export class ListComponent implements OnInit {
 
     resetCriteria(): void {
         this.criteria = new SearchCriteria();
-        this.beginDateModel = new DatePickerModel();
-        this.endDateModel = new DatePickerModel();
+        this.beginDateModel = { year: 0, month: 0, day: 0 };
+        this.endDateModel = { year: 0, month: 0, day: 0 };
     }
 }

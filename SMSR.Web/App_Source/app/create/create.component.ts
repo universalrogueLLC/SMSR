@@ -1,9 +1,10 @@
 ﻿import { Component, Inject, forwardRef, OnInit } from '@angular/core';
 
+import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+
 import { AppService } from "../appService.service";
 
 import { Project, User, StatusReport } from "../entities";
-import { DatePickerModel } from "../types";
 
 @Component({
     selector: 'app-create',
@@ -16,7 +17,7 @@ export class CreateComponent implements OnInit {
     selectedProjectId: string = "";
     projects: Project[] = new Array<Project>();
 
-    reportDateModel: DatePickerModel;
+    reportDateModel: NgbDateStruct;
 
     constructor( @Inject(forwardRef(() => AppService)) private appService: AppService) { }
 

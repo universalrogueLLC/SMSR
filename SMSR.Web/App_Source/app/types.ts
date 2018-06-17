@@ -19,13 +19,13 @@ export class SearchResult {
     ReportDate: string;
 }
 
-export class DatePickerModel {
-    year: number;
-    month: number;
-    day: number;
-}
-
 export class AppAction {
     route: string;
     label: string;
+}
+
+export class GenerateCriteria {
+    projectId: string;
+    beginDate: string;
+    endDate: string;
 }

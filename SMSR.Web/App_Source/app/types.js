@@ -16,16 +16,16 @@ var SearchResult = (function () {
     return SearchResult;
 }());
 exports.SearchResult = SearchResult;
-var DatePickerModel = (function () {
-    function DatePickerModel() {
-    }
-    return DatePickerModel;
-}());
-exports.DatePickerModel = DatePickerModel;
 var AppAction = (function () {
     function AppAction() {
     }
     return AppAction;
 }());
 exports.AppAction = AppAction;
+var GenerateCriteria = (function () {
+    function GenerateCriteria() {
+    }
+    return GenerateCriteria;
+}());
+exports.GenerateCriteria = GenerateCriteria;
 //# sourceMappingURL=types.js.map

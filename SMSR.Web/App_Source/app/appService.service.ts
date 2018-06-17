@@ -2,10 +2,12 @@
 
 import { HttpClient } from "@angular/common/http";
 
+import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+
 import { Observable } from 'rxjs';
 
 import { ISMSREntity, Project, User, EntryType, StatusReport, StatusReportEntry } from "./entities";
-import { SearchCriteria, SearchResult, DatePickerModel, AppAction } from "./types";
+import { SearchCriteria, SearchResult, AppAction } from "./types";
 
 @Injectable()
 export class AppService {
@@ -18,7 +20,7 @@ export class AppService {
 
     constructor( @Inject(forwardRef(() => HttpClient)) private httpClient: HttpClient) { }
 
-    formatDatePickerModelAsString(model: DatePickerModel): string {
+    formatDatePickerModelAsString(model: NgbDateStruct): string {
 
         if (model == null || model.year == 0) {
             return "";

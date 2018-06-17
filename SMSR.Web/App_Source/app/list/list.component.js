@@ -42,8 +42,8 @@ var ListComponent = (function () {
     };
     ListComponent.prototype.resetCriteria = function () {
         this.criteria = new types_1.SearchCriteria();
-        this.beginDateModel = new types_1.DatePickerModel();
-        this.endDateModel = new types_1.DatePickerModel();
+        this.beginDateModel = { year: 0, month: 0, day: 0 };
+        this.endDateModel = { year: 0, month: 0, day: 0 };
     };
     ListComponent = __decorate([
         core_1.Component({
