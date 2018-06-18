@@ -17,3 +17,11 @@ on the front end. Also it uses ng-bootstrap.
     * view report -- view the details of the report
     * generate MSR -- generate a basic monthly status report
     * admin -- manage entry types, projects, users
+
+# JsDecommenter
+
+JsDecommenter is a little experimental application that strips block comments
+(e.g. /* ... */ ) from javascript files. My intention was to run this after webpacking,
+since webpack does not minify copyright comments from its output. But it turns out that
+running JsDecommenter doesn't provide a lot of value; the size of copyright comments in
+comparison to webpack output is miniscule.
