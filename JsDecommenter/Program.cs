@@ -13,8 +13,17 @@ namespace JsDecommenter
         {
             var tempfile = Path.GetTempFileName();
 
-            Console.WriteLine("READING FROM " + args[0]);
-            using (var reader = new StreamReader(args[0]))
+            Generate(args[0], tempfile);
+
+            Copy(tempfile, args[0]);
+
+            Delete(tempfile);
+        }
+
+        private static void Generate(string sourcefile, string tempfile)
+        {
+            Console.WriteLine("READING FROM " + sourcefile);
+            using (var reader = new StreamReader(sourcefile))
             {
                 var content = reader.ReadToEnd();
 
@@ -22,54 +31,54 @@ namespace JsDecommenter
 
                 var accumulator = new StringBuilder();
 
-                var state = "root";
+                var state = States.ROOT;
                 foreach (var c in content)
                 {
                     switch (state)
                     {
-                        case "root":
+                        case States.ROOT:
                             if (c == '/')
                             {
                                 accumulator.Append(c);
-                                state = "slash";
+                                state = States.SLASH;
                             }
                             else
                             {
                                 result.Append(c);
                             }
                             break;
-                        case "slash":
+                        case States.SLASH:
                             if (c == '/')
                             {
                                 accumulator.Append(c);
                             }
                             else if (c == '*')
                             {
-                                state = "sta1";
+                                state = States.STAR1;
                             }
                             else
                             {
                                 result.Append(accumulator.ToString());
                                 result.Append(c);
                                 accumulator = new StringBuilder();
-                                state = "root";
+                                state = States.ROOT;
                             }
                             break;
-                        case "star1":
+                        case States.STAR1:
                             if (c == '*')
                             {
-                                state = "star2";
+                                state = States.STAR2;
                             }
                             else
                             {
                                 // NOP
                             }
                             break;
-                        case "star2":
+                        case States.STAR2:
                             if (c == '/')
                             {
                                 accumulator = new StringBuilder();
-                                state = "root";
+                                state = States.ROOT;
                             }
                             else if (c == '*')
                             {
@@ -77,7 +86,7 @@ namespace JsDecommenter
                             }
                             else
                             {
-                                state = "star1";
+                                state = States.STAR1;
                             }
                             break;
                     }
@@ -92,12 +101,26 @@ namespace JsDecommenter
 
                 reader.Close();
             }
+        }
 
-            Console.WriteLine("COPYING TO " + args[0]);
-            File.Copy(tempfile, args[0], true);
+        private static void Copy(string tempfile, string sourcefile)
+        {
+            Console.WriteLine("COPYING TO " + sourcefile);
+            File.Copy(tempfile, sourcefile, true);
+        }
 
+        private static void Delete(string tempfile)
+        {
             Console.WriteLine("DELETING " + tempfile);
             File.Delete(tempfile);
         }
+    }
+
+    enum States
+    {
+        ROOT,
+        SLASH,
+        STAR1,
+        STAR2
     }
 }
