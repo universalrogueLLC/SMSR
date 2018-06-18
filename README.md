@@ -1,55 +1,19 @@
-# SMSR.Context: the EF context
+# SMSR - a simple status report management application
 
-# SMSR.Database: the database project
-    dbo
-        tables
-            statusentries.sql
-                id, entrytypeid, entryvalue, entrynotes, statusreportid
-            statusreports.sql
-                id, reportdate, projectid, authorid
-            entrytypes.sql
-                id, name, isActive
-            projects.sql
-                id, name, isActive
-            authors.sql
-                id, name, dn, isActive
+SMSR is a really simple ASP.NET/Angular application for managing weekly status reports
+and generating monthly versions of them. It uses EF Code First as its ORM, and Angular
+on the front end. Also it uses ng-bootstrap.
 
-# SMSR.Entities: the entity class library
-    StatusEntry
-    StatusReport
+# Business Objects (entities)
     Entrytype
     Project
-    Author
+    StatusReport
+    StatusReportEntry
+    User
 
-# SMSR.Web: the web application
-    home
-        add report -- add a status report
-        list reports -- list status reports
-        generate MSR -- generate the basic MSR
-        admin -- manage entry types, projects, authors
-    add/edit report
-        project: [___V]
-        <add entry>
-            type: [___V]  value: [___] notes: [___] <delete>
-        <save> <delete>
-    list reports
-        filter: project: [___V] author: [___V] dates: [___] to [___]
-        <search>
-        data
-        data  (hyperlinked to edit this record)
-        data
-    generate MSR 
-        dates: [___] to [___]  project: [___V] <generate>
-        data
-            data
-            data
-        data
-            data
-            data
-    admin
-        tab: entry types
-            CRUD on entry types
-        tab: projects
-            CRUD on projects
-        tab: authors
-            CRUD on authors
+# Application Functions
+    * add/edit report -- add/edit a status report
+    * list reports -- filter/list status reports
+    * view report -- view the details of the report
+    * generate MSR -- generate a basic monthly status report
+    * admin -- manage entry types, projects, users
